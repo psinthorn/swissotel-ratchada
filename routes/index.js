@@ -4,8 +4,17 @@ const {ensureAuthenticated, ensureGuest} = require('../helpers/auth');
 
 module.exports = (app) => {
 
-   //Welcome landing page
-  app.get('/', IndexController.index);
+   //Reservation landing page
+  app.get('/', IndexController.eventBooking);
+
+  //Reservation post process
+  app.post('/reservation', IndexController.reservation);
+
+  //All Booking Lists
+  app.get('/admin/bookings',ensureAuthenticated, IndexController.bookingLists );
+
+  //Thank You
+  app.get('/thank-you', IndexController.thankYou);
 
   //about page
   app.get('/about', IndexController.about);  
@@ -21,7 +30,7 @@ module.exports = (app) => {
   app.get('/transfers/book/:id', IndexController.bookTransfer );
 
   //transfers booking form
-  app.get('/term-policies', IndexController.termPolicy );
+  app.get('/terms-conditions', IndexController.termPolicy );
 
 
   //Contact page

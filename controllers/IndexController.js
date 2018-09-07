@@ -7,9 +7,12 @@ const Intro = require('../models/Intro');
 const Transfer = require('./../models/Transfer');
 const TourCategory = require('./../models/TourCategory');
 const Policy = require('./../models/Policy');
+const BookingHotel = require('./../models/BookingHotel');
 
 
 module.exports = {
+
+
 
 
 index(req, res){
@@ -28,6 +31,61 @@ index(req, res){
     });
     
 }, 
+
+//Booking Reservation Page
+eventBooking(req, res){
+    
+        let promiseAll = [
+            Policy.find({}).exec(),
+            Transfer.find({}).exec(),
+        ]
+        
+        Promise.all(promiseAll)
+        .then(([policy, transfers]) => {
+            res.status(200).render('index/event-booking', { policy: policy, transfers: transfers  } );
+        });
+    },
+
+
+//Booking Reservation Page
+reservation(req, res){
+
+    
+    let booking = req.body;
+
+    
+
+    //res.send(booking);
+    BookingHotel.create(booking)
+    .then( booking => {
+        const id = booking._id;
+        const fName = booking.fname;
+        const lName = booking.lname
+        res.status(200).redirect('/thank-you?id='+ id + '&fname='+ fName + '&lname='+ lName);
+    });
+    
+    },
+
+
+ //Booking lists   
+ bookingLists(req, res){
+    
+        BookingHotel.find({}).sort({ bookingTimeStamp: -1})
+        .then( bookings => {
+            res.status(200).render("admin/booking-lists", { bookings: bookings });
+        });
+        
+    },
+
+
+//Thank you 
+thankYou(req, res){
+    const id = req.query.id;
+    const lname = req.query.lname;
+    const fname = req.query.fname;
+
+    res.render('index/thank-you', {id: id, lname: lname, fname: fname});
+},
 
 about(req, res){
     About.findOne({})
@@ -109,6 +167,8 @@ contact(req, res){
         });
     
 },
+
+
 
 
 maps(req, res){

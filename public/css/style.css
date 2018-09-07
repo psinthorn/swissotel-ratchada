@@ -30,9 +30,11 @@ body, html  {
 
   .nav-wrapper  {
     
-    background-color:     #0288d1; 
+    background-color:     #ffffff; 
     /*$brand-primary:           #084672;*/
     /*materialize color #0288d1 light-blue darken-2*/
+    padding: 5px;
+    margin: 5px;
       
     
   }
@@ -50,19 +52,9 @@ body, html  {
     text-transform: capitalize;
   }
 
-  .services-section {
-    padding-top: 120px;
-    padding-bottom: 120px;
-   
-  }
 
-  .about-section{
-    background-color: #eceff1;
-    padding-top: 120px;
-    padding-bottom: 120px;
-    color: #fff;
-   
-  }
+
+
 
   .banner-index {
     height: 95vh;
@@ -88,14 +80,6 @@ body, html  {
   
   }
 
-  .why-section{
-    
-    background-color: #eceff1;
-    padding-top: 120px;
-    padding-bottom: 120px;
-   color: #fff;
-   
-  }
 
   .social-section {
     background-color: #ffffff;
@@ -105,30 +89,9 @@ body, html  {
     color: #455a64;
   }
 
-  .banner-sub {
-   
-      height: 30vh;
-      /* background-image: url(../imags/natours/nat-5.jpg); */
-      background-size: cover;
-      background-color: #777;
-      background-position: top;
-    
-  }
 
-  .about-us{
-    background-color: #ffffff;
-    padding-top: 150px;
-    margin-top: 120px;
-    padding-bottom: 120px;
-    color: #455a64;
-   
-  }
 
-  .apartment-pic-box {
-    height: 30vh;
-    width: 90%;
 
-  }
 
   .blue-grey-text {
     color: #455a64;
@@ -147,7 +110,7 @@ body, html  {
    
     font-size: 105%;
    
-    transition: all 500ms ease; 
+    /* transition: all 500ms ease;  */
   }
 
  
@@ -187,12 +150,13 @@ a:hover {
 
 .logo {
   display: inline-block;
-  height: 90%;
+  /* height: 100%; */
 }
 
-.logo>img {
-  vertical-align: middle
-}
+/* .logo>img {
+  vertical-align: middle;
+  
+} */
 
 .font-grey {
   color: #777
@@ -348,7 +312,8 @@ a:hover {
 
 .top-side-nav {
   /*background-color: grey;*/
-  align-self: start;
+  -webkit-align-self: center; /* Safari 7.0+ */
+  align-self: center;
 }
 
 .top-logo {
@@ -369,12 +334,7 @@ a:hover {
 
 }
 
-.intro {
-  color: whitesmoke;
-  background-color: #0288d1;
-  padding-top: 50px; 
-  padding-bottom: 80px; 
-}
+
 
 .to-uppercase {
   text-transform: uppercase;
@@ -385,6 +345,10 @@ i.include-check {
 }
 
 i.exclude-check {
+  color: #ff5252;
+}
+
+i.menu-icon {
   color: #ff5252;
 }
 

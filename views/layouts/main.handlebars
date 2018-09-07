@@ -25,6 +25,12 @@
      <link rel="stylesheet" href="/css/lightbox.min.css">   
      <link rel="stylesheet" href="/css/style.css">
 
+     {{!-- Swissotel CSS --}}
+
+     <link rel="stylesheet" type="text/css" href="//d1r80pgesjju2u.cloudfront.net/sw/prod-ld1/delivery/brand-property-reservation.min.css?v=3.8" />
+    {{!-- <link href="/frhi/inc/img/favicon.ico" rel="shortcut icon" type="image/x-icon" /> --}}
+
+
     
      <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
@@ -45,22 +51,26 @@
 </style>
 
 
-    <title>Samui Ocean Tour | 1st Step of your Journey</title>
+    <title>Hotel Reservation Form | The Swissotel Le Concorde, Bangkok </title>
 </head>
 
 <body>
-     {{> _nav2bar }}  
+   
+         {{> _nav2bar }}  
     {{!--{{> _header }} --}}
+    
+    
     
 
     {{!-- {{#if user}} {{> _add-btn}} {{else}} {{/if}} --}}
 
     <main>
         
-        <div class="container">
+        <div class="container" style="margin-top: 50px">
             {{> _msg-flash}}
        
         </div>
+       
 
              {{{body}}}
         

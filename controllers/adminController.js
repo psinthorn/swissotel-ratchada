@@ -34,7 +34,7 @@ module.exports = {
     //Login Page
     login(req, res, next) {
         passport.authenticate('local', {
-            successRedirect: '/admin/tours',
+            successRedirect: '/admin/bookings',
             failureRedirect: '/admin/login',
             failureFlash: true
         })(req, res, next); 

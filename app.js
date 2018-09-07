@@ -59,7 +59,7 @@ const app = express();
 
 //use sessions for tracking logins
 app.use(session({
-    secret: 'apdl.ca',
+    secret: 'swissotel',
     resave: true,
     saveUninitialized: false
   }));
@@ -90,6 +90,7 @@ mongoose.connect(keys.mongoURI, {
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.log(err) );
 
+
 aws.config.region = 'eu-west-1';
 
 /*
@@ -101,13 +102,9 @@ const S3_BUCKET = process.env.S3_BUCKET;
 paypal.configure({
    
     'mode': 'sandbox', //sandbox or live
-    'client_id': 'paypal_client_id', //seaflyers
-    'client_secret': 'paypal_client_secret' //seaflyers
-
-    // 'mode': 'live', //sandbox or live
-    // 'client_id': 'paypal_client_id', //seaflyers
-    // 'client_secret': 'paypal_client_id' //seaflyers
-
+    //Pornchai Transport and Tours
+    'client_id': 'AS7LnARWBmHwFlFf5O9_n6', //seaflyers
+    'client_secret': 'EF-cGaliGY6pQxHK_GO4kxUAQkgkwbMdL5sBwLFJZEg-D' //seaflyers
 
 });
 
