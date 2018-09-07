@@ -7,16 +7,27 @@
                     <b>Payment Information</b>
                     <div class="hr-1px"></div>
 
+                   
+
 
                      <div class="row">
+
                             <div class="col s12 m6 l6 input-field">
-                                <input type="text"  name="cccompany" required>
-                                <label for="cccompany">Card Company</label>
+                                  <select name="cccompany" id="cccompany">
+                                           
+                                           <option value="Visa Card" >Visa Card</option>
+                                            <option value="Master Card" >Master Card</option>
+                                            <option value="Amex" >Amex</option>
+                                            <option value="JCB" >JCB</option>
+                                            <option value="China Union Pay" >China Union Pay</option>
+                                           
+                            </select>
+                                        <label for="cccompany">Card Company</label>
                             </div>
                             
                             <div class="col s12 m6 l6 input-field">
                                 <input type="text"  name="ccno">
-                                <label for="ccno">Card No.</label>
+                                <label for="ccno">Card No. (Ex. 1111-1111-1111-1111)</label>
                             </div>
 
                             
@@ -25,7 +36,7 @@
                      <div class="row">
                             <div class="col s12 m6 l6 input-field">
                                 <input type="text"  name="ccexp" required>
-                                <label for="ccexp">Expire Date</label>
+                                <label for="ccexp">Expire Date ( dd/yy )</label>
                             </div>
                             
                             <div class="col s12 m6 l6 input-field">
