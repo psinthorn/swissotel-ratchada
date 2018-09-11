@@ -3,11 +3,12 @@ const Schema = mongoose.Schema;
 
 const BookingHotelSchema = new Schema({
 
-    spmrsingle: {
-        type: String,
-        default: "off"
-
+    
+    spmrsingle: { 
+            type: String,
+            default: "off"
     },
+
     spmrtwin:{
         type: String,
         default: "off"
