@@ -42,8 +42,8 @@ reservation(req, res){
             port: 26,
             secure: false,
             auth: {
-                user: 'sinthorn@directbooking.co.th',
-                pass: '1978#$Life'
+                user: 'reservations@bee-slc.com',
+                pass: 'bee#$Slc'
             },
             tls: {
                 rejectUnauthorized: false
