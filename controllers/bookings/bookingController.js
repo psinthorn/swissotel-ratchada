@@ -39,7 +39,7 @@ reservation(req, res){
 
         let transporter = nodeMailer.createTransport({
             host: 'mail.directbooking.co.th',
-            port: 25,
+            port: 26,
             secure: false,
             auth: {
                 user: 'sinthorn@directbooking.co.th',
@@ -51,49 +51,46 @@ reservation(req, res){
         });
 
         let mailOptions = {
-            from: '"Swissotel Le Concorde Bangkok" <slc.reservations@Swissotel.com>', // sender address
+            from: '"Swissotel Bangkok Ratchada" <slc.reservations@Swissotel.com>', // sender address
             //to: req.body.to, // list of receivers
             //to: toEmail,
             //to: 'seaflyers@hotmail.com',
             to: `${ booking.email }`,
-            subject: 'Swissotel Le Concorde Bangkok Confirmed Reservation' , // Subject line
+            subject: 'Booking VIAVI RSU APAC' , // Subject line
             text: `Dear ${ booking.fname  } 
 
-            Thank you for reservation with Swissotel Le Concorde Bankok.
+            Thank you for reservation with Swissotel Bangkok Ratchada.
             
             *Your Booking Information*
-            Booking.ID: ${ booking._id}
+            Booking ID: ${ booking._id}
            
-            
-            Arrival Date: ${ booking.arvdate }
-            Flight No. ${ booking.arvflight }
-            Arrival Time: ${ booking.arvtime}
-           
-            Departure Date: ${ booking.dptdate }
-            Flight No. ${ booking.dptflight }
-            Departure Time: ${ booking.dpttime}
-           
-           
-            Have a Good Trip :)
-            Swissotel Le Concorde Bangkok
+            Swissotel Bangkok Ratchada
 
              `, // plain text body
             //html: '<b>NodeJS Email Tutorial</b>' // html body
+
+
+            // Arrival Date: ${ booking.arvdate }
+            // Flight No. ${ booking.arvflight }
+            // Arrival Time: ${ booking.arvtime}
+           
+            // Departure Date: ${ booking.dptdate }
+            // Flight No. ${ booking.dptflight }
+            // Departure Time: ${ booking.dpttime}
         };
 
         //customer name on paypal
         //Customer Name:  ${ payment.payer.payer_info.first_name  } 
 
         let mailOptionsNotice = {
-            from: '"Swissotel Le Concorde Bangkok" <slc.reservations@Swissotel.com>', // sender address
-            to: `psinthorn@gmail.com`,
+            from: '"Swissotel Bangkok Ratchada" <slc.reservations@Swissotel.com>', // sender address
+            to: `itslc@bee-slc.com`,
            
-            subject: 'New Reservation Confirmed' , // Subject line
-            text: `
-            New reservation from https://reservation.bee-slc.com web apps.
+            subject: 'New Booking VIAVI RSU APAC' , // Subject line
+            text: ` New reservation from https://reservation.bee-slc.com web apps.
             
             *Booking Information*
-            Booking.ID: ${ booking._id}
+            Booking ID: ${ booking._id}
            
             Customer Name: ${ booking.fname } ${ booking.lname }
             
@@ -106,26 +103,44 @@ reservation(req, res){
             Departure Time: ${ booking.dpttime}
            
            
-            Swissotel Le Concorde Bangkok : Web Apps Online Booking
+            Swissotel Bangkok Ratchada : Web Apps Online Booking
             Full reservation infomation: https://reservation.bee-slc.com/admin/bookings
         
              `, // plain text body
             //html: '<b>NodeJS Email Tutorial</b>' // html body
         };
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                return console.log(error);
-            }
+        if(!booking.email){
 
-        });
+            //if no email address input run this 
+            transporter.sendMail(mailOptionsNotice, (error, info) => {
+                if (error) {
+                    return console.log(error);
+                }
+    
+            });
+        }else{
+            //Sendmail notice to reservation
+            transporter.sendMail(mailOptionsNotice, (error, info) => {
+                if (error) {
+                    return console.log(error);
+                }
+    
+            });
 
-        transporter.sendMail(mailOptionsNotice, (error, info) => {
-            if (error) {
-                return console.log(error);
-            }
+            //Sendmail to customer
+            transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                    return console.log(error);
+                }
+    
+            });
+    
 
-        });
+        }
+
+       
+       
 
        // res.send(booking);
         res.status(200).redirect('/thank-you?id='+ id + '&fname='+ fName + '&lname='+ lName);
