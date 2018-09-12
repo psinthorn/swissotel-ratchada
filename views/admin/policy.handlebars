@@ -30,12 +30,12 @@
            
             {{!-- <td class="hide-on-small-only">{{ stripTags (truncate desc 100) }}</td> --}}
             <td>{{ status }}</td>
-            <td class="right-align"> <a href="/admin/policy/{{ id }}" class="btn">Edit</a> </td>
+            <td class="right-align"> <a href="/admin/policy/{{ id }}" class="btn" style="margin-right: 5px" >Edit</a> </td>
             
             <td class="left-align">
                  <form action="/admin/policy/{{ id }}?_method=DELETE" method="post" id="delete-form">
                         <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red">Delete</button>
+                            <button type="submit" class="btn red" style="margin-right: 5px" >Delete</button>
             </form>
             
             
