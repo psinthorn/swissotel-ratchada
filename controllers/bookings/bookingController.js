@@ -30,6 +30,8 @@ eventBooking(req, res){
 reservation(req, res){
 
     let booking = req.body;
+
+
     //res.send(booking);
     BookingHotel.create(booking)
     .then( booking => {
@@ -39,8 +41,10 @@ reservation(req, res){
 
         let transporter = nodeMailer.createTransport({
             host: 'mail.directbooking.co.th',
-            port: 26,
-            secure: false,
+            //port: 25,
+            secure: true,
+            port: 465,
+            //secure: false,
             auth: {
                 user: 'reservations@bee-slc.com',
                 pass: 'bee#$Slc'
@@ -84,24 +88,63 @@ reservation(req, res){
 
         let mailOptionsNotice = {
             from: '"Swissotel Bangkok Ratchada" <slc.reservations@Swissotel.com>', // sender address
-            to: `itslc@bee-slc.com`,
+            to: `reservations@bee-slc.com`,
            
             subject: 'New Booking VIAVI RSU APAC' , // Subject line
             text: ` New reservation from https://reservation.bee-slc.com web apps.
             
             *Booking Information*
-            Booking ID: ${ booking._id}
+            ______________________________________________________________________________
+            - Booking ID: ${ booking._id}
            
-            Customer Name: ${ booking.fname } ${ booking.lname }
+            - Customer Name: ${ booking.fname } ${ booking.lname }
+            - Company Name: ${ booking.companyname}
+            - Address: ${ booking.addr}
+            - Email: ${ booking.email }
+            - Phone: ${ booking.phone }
+            - Fax: ${ booking.fax }
+            - 
             
-            Arrival Date: ${ booking.arvdate }
-            Flight No. ${ booking.arvflight }
-            Arrival Time: ${ booking.arvtime}
+            []Rooms Type Selection:
+            ____________________________________________________________________________
+            - Swiss Premier Room Single: ${ booking.spmrsingle } 
+            - Swiss Premier Room Twin:    ${ booking.spmrtwin }
+
+            - One Bed and Executive Suite Single: ${ booking.obrssingle } 
+            - One Bed and Executive Suite: ${ booking.obrstwin } 
+
+            - Execlutive Suite Single: ${ booking.exctsingle } 
+            - Execlutive Suite Twin: ${ booking.excttwin } 
+
+            []Extra Bed: ${ booking.xtrb}
+
+            Airport Transfers
+            ___________________________________________________________________________
+            <-> Suvarnabhumi Airport -> Hotel
+             - Toyota camry: ${ booking.camry5b9246247745312776fd4d76}
+             - Toyota Commuter: ${ booking.minibus5b9246247745312776fd4d76 }
+             
+            <-> Hotel -> Suvarnabhumi Airport
+             - Toyota camry: ${ booking.camry5b9246307745312776fd4d77 }
+             - Toyota Commuter: ${ booking.minibus5b9246307745312776fd4d77 }
+
+
+            <-> Arrival and Departure Date and Time
+            _____________________________________________________________________________
+            - Arrival Date: ${ booking.arvdate }
+            - Flight No. ${ booking.arvflight }
+            - Arrival Time: ${ booking.arvtime}
            
-            Departure Date: ${ booking.dptdate }
-            Flight No. ${ booking.dptflight }
-            Departure Time: ${ booking.dpttime}
-           
+            - Departure Date: ${ booking.dptdate }
+            - Flight No. ${ booking.dptflight }
+            - Departure Time: ${ booking.dpttime}
+
+            $Payment Infomation
+            _______________________________________________________________________________
+            - Credit Card Company: ${ booking.cccompany }
+            - Credit Card No: ${ booking.ccno }
+            - Credit Card Expire: ${ booking.ccexp }
+            - Credit Card Holder Name: ${ booking.ccname }
            
             Swissotel Bangkok Ratchada : Web Apps Online Booking
             Full reservation infomation: https://reservation.bee-slc.com/admin/bookings
