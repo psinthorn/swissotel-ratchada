@@ -225,6 +225,12 @@ reservation(req, res){
         });
     },
 
+    // delete(req, res){
+    //     const id = req.params.id;
+
+    //     BookingHotel.findByIdAndRemove({_id: id})
+    // },
+
 }
 
 
