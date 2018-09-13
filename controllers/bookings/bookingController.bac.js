@@ -110,10 +110,24 @@ reservation(req, res){
             - Swiss Premier Room Single: ${ booking.spmrsingle } 
             - Swiss Premier Room Twin:    ${ booking.spmrtwin }
 
+            - One Bed and Executive Suite Single: ${ booking.obrssingle } 
+            - One Bed and Executive Suite: ${ booking.obrstwin } 
+
+            - Execlutive Suite Single: ${ booking.exctsingle } 
+            - Execlutive Suite Twin: ${ booking.excttwin } 
+
             []Extra Bed: ${ booking.xtrb}
 
             Airport Transfers
-            
+            ___________________________________________________________________________
+            <-> Suvarnabhumi Airport -> Hotel
+             - Toyota camry: ${ booking.camry5b9246247745312776fd4d76}
+             - Toyota Commuter: ${ booking.minibus5b9246247745312776fd4d76 }
+             
+            <-> Hotel -> Suvarnabhumi Airport
+             - Toyota camry: ${ booking.camry5b9246307745312776fd4d77 }
+             - Toyota Commuter: ${ booking.minibus5b9246307745312776fd4d77 }
+
 
             <-> Arrival and Departure Date and Time
             _____________________________________________________________________________
@@ -206,23 +220,8 @@ reservation(req, res){
 
         BookingHotel.find({_id: id })
         .then( booking => {
-            let spmrsingleCheck = {} ;
-            let spmrtwinCheck = {};
-            if( booking[0].spmrsingle == "on"){
-                spmrsingleCheck.check = "checked"
-            }else if(booking[0].spmrtwin == "on"){
-                spmrtwinCheck.check = "checked"               
-            }else{
-                spmrsingleCheck.check = " "
-                spmrtwinCheck.check = " "
-            }
-
-            // console.log(booking[0].spmrsingle);
-            // console.log(booking[0].spmrtwin);
-            // console.log(spmrsingleCheck.check);
-            // console.log(spmrtwinCheck.check);
             //res.send(booking);
-            res.render('bookings/show',{ booking: booking, spmrsingleCheck: spmrsingleCheck, spmrtwinCheck: spmrtwinCheck } );
+            res.render('bookings/show',{ booking: booking } );
         });
     },
 

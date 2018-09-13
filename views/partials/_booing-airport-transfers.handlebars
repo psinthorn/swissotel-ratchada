@@ -1,0 +1,29 @@
+ <div class="row card" style="background-color: #fafafa;">
+            <div class="col s12 m12 l12" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
+                <b>Airport Transfers</b>
+                <div class="hr-1px"></div>
+                {{#each transfers }}
+                <p>
+                    <b>{{from}} - {{to}}</b>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" name="camry{{ _id }}" class="filled-in" />
+                        <span style="font-size: 12px">Toyota Camry (max. 3 persons) THB
+                            <b>{{ sedan.sale}}.</b>-net/car/way </span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="minibus{{ _id }}" class="filled-in" />
+                        <span style="font-size: 12px; text-decoration: none">Toyota Commuter (max. 10 persons) THB
+                            <b>{{ minibus.sale}}.</b>-net/car/way </span>
+                    </label>
+                </p>
+
+                {{/each}}
+            </div>
+
+
+        </div>

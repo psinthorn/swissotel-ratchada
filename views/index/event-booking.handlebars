@@ -1,6 +1,6 @@
 <div class="container" style="margin-bottom: 50px">
 
-<form action="/reservation" method="post">
+    <form action="/reservation" method="post">
 
 
         {{!-- Room and Benefit --}}
@@ -10,292 +10,29 @@
                     <h2>HOTEL RESERVATION FORM – SWISSOTEL BANGKOK RATCHADA</h2>
                     <h3>VIAVI RSU APAC on 23 – 25 October 2018</h3>
                 </div>
-                
+
             </div>
         </div>
 
-        {{!-- <div class="row card">
-            <div class="col s12 m12 l12 center card-content" style="background-color: #eeeeee; padding: 10px">
-                <p>Please complete this form </p>
-            </div>
-        </div> --}}
-       
-        {{!-- Swiss Premier Room --}}
-        <div class="row card" style="background-color: #fafafa;">
-            
-                <div class="col s12 m5 l5" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                    <b>Room Type Delegation</b>
-                    <div class="hr-1px"></div>
-                    <p><b>1. Swiss Premier Room</b></p>
-                    
-                    <p>
-                                <label>
-                                    <input type="checkbox" name="spmrsingle" class="filled-in"/>
-                                    <span style="font-size: 12px">Single Occupancy THB <b>4,826.</b> -net/room/night </span>
-                                </label>
-                                </p>
-                                 
-                                <p>
-                                    <label>
-                                    <input type="checkbox" name="spmrtwin" class="filled-in"/>
-                                    <span style="font-size: 12px;">Twin Occupancy THB <b>4,826.</b> -net/room/night </span>
-                                    </label>
-                    </p>
-                 </div>
-                 <div class="col s12 m1 l1">
+        {{> _booking-room-info }} 
+        
+        {{!-- Extra Bed --}} 
+        {{> _booking-extrabed-info }} 
+        
+        {{!-- Airport Transfers - --}}
+        {{!-- {{> _booking-airport-transfers }} --}}
 
-                 </div>
-                <div class="col s12 m6 l6" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                    <b>Benefit</b>
-                    <div class="hr-1px"></div>
-                    <ul>
-                        <li>-Inclusive of 10% service charge and 7% VAT.</li>
-                        <li>-Daily Buffet Breakfast</li>
-                        <li>-<b>Complimentary Wi-Fi in guest rooms and meeting rooms during the duration of stay.</b></li>
-                        <li>-Welcome drink upon arrival and Daily Newspaper</li>
-                        <li>-Complimentary usage of fitness center and swimming pool on 5 th floor</li>
-                    </ul>            
-                </div>
-             
-        </div>
+        {{!-- Meet and Greet at Airport - --}}
+        
+        {{!-- {{> _booking-meet-and-greet-info }} --}}
 
-         {{!-- One Bed Room Suite --}}
-        {{!-- <div class="row card" style="background-color: #fafafa;">
-            
-                <div class="col s12 m5 l5" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                    <b>Room Type Delegation</b>
-                    <div class="hr-1px"></div>
-                    <p><b>2. One Bed and Executive Suite</b></p>
-                    
+        {{!-- terms and condition --}}
+        {{> _booking-terms-conditions }} 
 
-                    <p>
-                                <label>
-                                    <input type="checkbox" name="obrssingle" class="filled-in"/>
-                                    <span style="font-size: 12px">Single Occupancy THB <b>10,122.</b> -net/room/night </span>
-                                </label>
-                                </p>
-                                 
-                                <p>
-                                    <label>
-                                    <input type="checkbox" name="obrstwin" class="filled-in"/>
-                                    <span style="font-size: 12px;">Twin Occupancy THB <b>10,122.</b> -net/room/night </span>
-                                    </label>
-                    </p>
+        {{!-- customer info --}}
+        {{> _booking-customer-info }}
 
 
-
-                 </div>
-                 <div class="col s12 m1 l1">
-
-                 </div>
-                <div class="col s12 m6 l6" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                    <b>Benefit</b>
-                    <div class="hr-1px"></div>
-                    <ul>
-                        <li>-Inclusive of 10% service charge and 7% VAT.</li>
-                        <li>-Daily Buffet Breakfast</li>
-                        <li>-<b>Complimentary Wi-Fi in guest rooms and meeting rooms during the duration of stay.</b></li>
-                        <li>-Welcome drink upon arrival and Daily Newspaper</li>
-                        <li>-Complimentary usage of fitness center and swimming pool on 5 th floor</li>
-                    </ul>             
-                </div>
-             
-        </div> --}}
-
-         {{!-- Execlutive Suite --}}
-        {{!-- <div class="row card" style="background-color: #fafafa;">
-            
-                <div class="col s12 m5 l5" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                    <b>Room Type Delegation</b>
-                    <div class="hr-1px"></div>
-                    <p><b>3. Execlutive Suite</b></p>
-                    
-
-                    <p>
-                                <label>
-                                    <input type="checkbox" name="exctsingle" class="filled-in"/>
-                                    <span style="font-size: 12px">Single Occupancy THB <b>15,200.</b> -net/room/night </span>
-                                </label>
-                                </p>
-                                 
-                                <p>
-                                    <label>
-                                    <input type="checkbox" name="excttwin" class="filled-in"/>
-                                    <span style="font-size: 12px;">Twin Occupancy THB <b>15,200.</b> -net/room/night </span>
-                                    </label>
-                    </p>
-
-
-
-
-                 </div>
-                 <div class="col s12 m1 l1">
-
-                 </div>
-                <div class="col s12 m6 l6" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                    <b>Benefit</b>
-                    <div class="hr-1px"></div>
-                    <ul>
-                        <li>-Inclusive of 10% service charge and 7% VAT.</li>
-                        <li>-Daily Buffet Breakfast</li>
-                        <li>-<b>Complimentary Wi-Fi in guest rooms and meeting rooms during the duration of stay.</b></li>
-                        <li>-Welcome drink upon arrival and Daily Newspaper</li>
-                        <li>-Complimentary usage of fitness center and swimming pool on 5 th floor</li>
-                    </ul>            
-                </div>
-             
-        </div> --}}
-
-      {{!-- Extra Bed --}}
-        <div class="row card" style="background-color: #fafafa;">
-                
-
-               
-                <div class="col s12 m5 l5" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                    <b>Room Type Delegation</b>
-                    <div class="hr-1px"></div>
-                    
-                    <p>Extra Bed</p>
-
-                    <p>
-                                <label>
-                                    <input type="checkbox" name="xtrb" class="filled-in"/>
-                                    <span style="font-size: 12px">Extra Bed THB <b>2,200.</b> -net/room/night </span>
-                                </label>
-                    </p>
-                                 
-                                
-                    
-                 </div>
-                 <div class="col s12 m1 l1">
-
-                 </div>
-                <div class="col s12 m6 l6" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                    <b>Benefit</b>
-                    <div class="hr-1px"></div>
-                    <ul>
-                        <li>-Inclusive of 10% service charge and 7% VAT.</li>
-                        <li>-Daily Buffet Breakfast</li>
-                       
-                    </ul>               
-                </div>
-              
-        </div>  
-
-{{!-- Airport Transfers - --}}
-        <div class="row card" style="background-color: #fafafa;">
-                
-
-               
-                <div class="col s12 m12 l12" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                    <b>Airport Transfers</b>
-                    <div class="hr-1px"></div>
-                        {{#each transfers }}
-                            <p><b>{{from}} - {{to}}</b></p> 
-                                <p>
-                                <label>
-                                    <input type="checkbox" name="camry{{ _id }}" class="filled-in"/>
-                                    <span style="font-size: 12px">Toyota Camry (max. 3 persons) THB <b>{{ sedan.sale}}.</b>-net/car/way </span>
-                                </label>
-                                </p>
-                                 
-                                <p>
-                                    <label>
-                                    <input type="checkbox" name="minibus{{ _id }}" class="filled-in"/>
-                                    <span style="font-size: 12px; text-decoration: none">Toyota Commuter (max. 10 persons) THB <b>{{ minibus.sale}}.</b>-net/car/way </span>
-                                    </label>
-                                </p>
-                                  
-                        {{/each}}
-                 </div>
-                
-              
-        </div>  
-
-{{!-- Meet and Greet at Airport  - --}}
-        <div class="row card" style="background-color: #fafafa;">
-                
-
-               
-                <div class="col s12 m12 l12" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                    <b>MEET and GREET&quot; (For Arrival at Suvarnabhumi Airport)</b>
-                    <div class="hr-1px"></div>
-
-                    <p>
-                        Please use the exit "B"; after retrieving your baggage from Luggage Belt 07 - 16
-                    </p>
-                    <p>
-                        Please use the exit "C"; after retrieving your baggage from Luggage Belt 17 - 23
-                    </p>
-                        
-                    <p>
-                         Our Hotel Staff will display the placard "Swissotel Le Concorde"; at Gate 5, not showing Guest name in accordance to Airport
-                        regulation for Security reasons.
-                    </p>
-
-                    <p>
-
-                         In the event that you are unable to locate our staff, please contact Thai Hotel Association (THA) Desk or you may call to the
-                        Hotel at Tel. 02-6942222 Ext.1110 for Concierge Service.
-                    </p>
-                       
-                       
-                      <p>
-                        All bookings are required to be guaranteed by a major credit card or a deposit for the first night is kindly required to be paid to the
-                        hotel prior to the major arrival date.
-                    </p>
-                    
-                   <br>
-                   
-                    
-                 </div>
-                
-              
-        </div>  
-
-    {{> _booking-terms-conditions }}
-
-    {{> _booking-customer-info }}    
-
-   
- {{!--  CONFIRMATION OF BOOKING BY THE HOTEL  - --}}
-        {{!-- <div class="row card" style="background-color: #fafafa;">
-                
-
-               
-                <div class="col s12 m12 l12" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                    <b>CONFIRMATION OF BOOKING BY THE HOTEL</b>
-                    <div class="hr-1px"></div>
-
-                         <div class="row">
-                            <div class="col s12 m6 l6 input-field">
-                                <input type="text"  name="confby">
-                                <label for="confby">Confirmed By</label>
-                            </div>
-                            
-                            <div class="col s12 m6 l6 input-field">
-                                <input type="text"  name="signature" required>
-                                <label for="signature">Signature</label>
-                            </div>                      
-                        </div>
-
-                        <div class="row">
-                            <div class="col s12 m6 l6 input-field">
-                                <input type="text"  name="bookingNo">
-                                <label for="bookingNo">Booking No.</label>
-                            </div>
-                            
-                            <div class="col s12 m6 l6 input-field">
-                                <input type="text" class="datePicker" name="confdate" >
-                                <label for="confdate">Date</label>
-                            </div>                      
-                        </div>
-               
-                 </div>
-                
-              
-        </div>          --}}
-
-        </form>
+    </form>
 
 </div>

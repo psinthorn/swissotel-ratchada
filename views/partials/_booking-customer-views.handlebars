@@ -1,132 +1,168 @@
-{{!-- Customer Information  - --}}
+{{!-- Customer Information - --}}
 
-    <div class="container">
 
-        <div class="row card">
-            <a href="/admin/bookings" class="btn">Back</a>
-        </div>
 
-        <div class="row card" style="background-color: #fafafa;">
-                
 
-               {{#each booking }}
+<div class="container">
+    {{#each booking }}
+    <div class="row">
+        <a href="/admin/bookings" class="btn-flat left" >Back</a>
+        <a href="/admin/booking/edit/{{ _id }}" class="btn-flat right" >Edit</a>
+    </div>
+    {{/each}}
+    <div class="row card" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
 
-                
+        <div class="col s12 m12 l12" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
+
+            <h4>
+                <b>Reservations Information</b>
+            </h4>
+            <div class="hr-1px"></div>
+
+            <div class="row">
+                {{> _booking-room-views-info }}
+            </div>
+
+            {{#each booking }}
+            <div class="row">
+                <div class="col s12 m6 l6 input-field">
+                    <input type="text" name="bookingId" id="bookingId" value="{{ _id }}">
+                    <label for="bookingId">Booking ID.</label>
+                </div>
+
+                <div class="col s12 m6 l6 input-field">
+                    <input type="text" name="bookingStatus" id="bookingStatus" value="{{ status }}">
+                    <label for="bookingStatus">Booking Status</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m6 l6 input-field">
+                    <input type="text" name="fname" value="{{fname}}">
+                    <label for="fname">First Name</label>
+                </div>
+
+                <div class="col s12 m6 l6 input-field">
+                    <input type="text" name="lname" value="{{lname}}">
+                    <label for="lname">Family Name</label>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col s12 m12 l12 input-field">
+                    <input type="text" value="{{email}}">
+                    <label for="email">Email Address</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m12 l12 input-field">
+                    <input type="text" name="companyname" value="{{companyname}}">
+                    <label for="companyname">Company Name.</label>
+                </div>
+
+                <div class="col s12 m12 l12 input-field">
+                    <input type="text" name="addr" value="{{addr}}">
+                    <label for="addr">Address</label>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col s12 m6 l6 input-field">
+                    <input type="text" name="phone" value="{{phone}}">
+                    <label for="phone">Telephone</label>
+                </div>
+
+                <div class="col s12 m6 l6 input-field">
+                    <input type="text" name="fax" value="{{fax}}">
+                    <label for="fax">Facimile</label>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col s12 m4 l4 input-field">
+                    <input type="text" class="datepicker" name="arvdate" value="{{arvdate}}">
+                    <label for="arvdate">Arrival Date</label>
+                </div>
+
+
+                <div class="col s12 m4 l4 input-field">
+                    <input type="text" name="arvflight" value="{{arvflight}}">
+                    <label for="arvflight">Flight No.</label>
+                </div>
+
+                <div class="col s12 m4 l4 input-field">
+                    <input type="text" class="timepicker" name="arvtime" value="{{arvtime}}">
+                    <label for="arvtime">Time</label>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col s12 m4 l4 input-field">
+                    <input type="text" class="datepicker" name="dptdate" value="{{dptdate}}">
+                    <label for="dptdate">Departure Date</label>
+                </div>
+
+                <div class="col s12 m4 l4 input-field">
+                    <input type="text" name="dptflight" value="{{dptflight}}">
+                    <label for="dptflight">Flight No.</label>
+                </div>
+
+                <div class="col s12 m4 l4 input-field">
+                    <input type="text" class="timepicker" name="dpttime" value="{{dpttime}}">
+                    <label for="dpttime">Time</label>
+                </div>
+            </div>
+
+
+            <div class="row">
+
                 <div class="col s12 m12 l12" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-
-                    <b>Customer Information</b>
+                    <h4>
+                        <b>Special Request</b>
+                    </h4>
                     <div class="hr-1px"></div>
 
-                     <div class="row">
-                         <input type="text" name="" id="">
-
-                     </div>
-                     
-                     <div class="row">
-                            <div class="col s12 m6 l6 input-field">
-                                <input type="text"  name="fname" value="{{fname}}">
-                                <label for="fname">First Name</label>
-                            </div>
-                            
-                            <div class="col s12 m6 l6 input-field">
-                                <input type="text"  name="lname" value="{{lname}}">
-                                <label for="lname">Family Name</label>
-                            </div>                           
-                    </div>
-
-
                     <div class="row">
-                            <div class="col s12 m12 l12 input-field">
-                                <input type="text"  name="companyname" value="{{companyname}}">
-                                <label for="companyname">Company Name</label>
-                            </div>                           
-                    </div>
-
-                    <div class="row">
-                            <div class="col s12 m12 l12 input-field">
-                                <input type="text"  name="addr" value="{{addr}}">
-                                <label for="addr">Address</label>
-                            </div>                           
-                    </div>
-
-                     <div class="row">
-                            <div class="col s12 m4 l4 input-field">
-                                <input type="text"  name="phone" value="{{phone}}">
-                                <label for="phone">Telephone</label>
-                            </div>
-                            
-                            <div class="col s12 m4 l4 input-field">
-                                <input type="text"  name="fax" value="{{fax}}" >
-                                <label for="fax">Facimile</label>
-                            </div>
-
-                             <div class="col s12 m4 l4 input-field">
-                                <input type="text" name="email" value="{{email}}">
-                                <label for="email">Email</label>
-                            </div>
-                         </div>
-
-
-                         <div class="row">
-                            <div class="col s12 m4 l4 input-field">
-                                <input type="text" class="datepicker" name="arvdate" value="{{arvdate}}">
-                                <label for="arvdate">Arrival Date</label>
-                            </div>
-                            
-
-                            <div class="col s12 m4 l4 input-field">
-                                <input type="text"  name="arvflight" value="{{arvflight}}">
-                                <label for="arvflight">Flight No.</label>
-                            </div>
-
-                             <div class="col s12 m4 l4 input-field">
-                                <input type="text" class="timepicker" name="arvtime" value="{{arvtime}}">
-                                <label for="arvtime">Time</label>
-                            </div>
-
-                         </div>
-
-                           <div class="row">
-                            <div class="col s12 m4 l4 input-field">
-                                <input type="text" class="datepicker" name="dptdate" value="{{dptdate}}">
-                                <label for="dptdate">Departure Date</label>
-                            </div>
-                            
-                            <div class="col s12 m4 l4 input-field">
-                                <input type="text"  name="dptflight" value="{{dptflight}}">
-                                <label for="dptflight">Flight No.</label>
-                            </div>
-
-                             <div class="col s12 m4 l4 input-field">
-                                <input type="text" class="timepicker" name="dpttime" value="{{dpttime}}">
-                                <label for="dpttime">Time</label>
-                            </div>
-                         </div>
-
-
-                         <div class="row">
-
-                         <div class="col s12 m12 l12" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                            <b>Special Request</b>
-                            <div class="hr-1px"></div>
-                                
-                                <div class="row">
-                                    <div class="col s12 m12 l12 input-field">
-                                        <input type="text"  name="specialReq" value="{{specialReq}}">
-                                        <label for="SpecilReq">Your special request</label>
-                                    </div>
-                                                    
-                                </div>
+                        <div class="col s12 m12 l12 input-field">
+                            <input type="text" name="specialReq" value="{{specialReq}}">
+                            <label for="specilReq">Your special request</label>
                         </div>
+
                     </div>
+                </div>
+            </div>
 
 
-                     {{> _booking-cc-views-info}}
-                                                               
-                 </div>
-              
-        </div>  
+            {{> _booking-cc-views-info}}
 
+        </div>
+
+    
+
+    </div>  
+
+     {{/each}} 
+
+    
+
+</div>
+
+{{#each booking }}
+    <div class="row">
+        <a href="/admin/bookings" class="btn-flat left" >Back</a>
+        <a href="/admin/booking/edit/{{ _id }}" class="btn-flat right" >Edit</a>
+    </div>
     {{/each}}
- </div>       
-     
+
+
+   
+
+       
