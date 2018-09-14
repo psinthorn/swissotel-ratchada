@@ -13,10 +13,13 @@ module.exports = (app) => {
     //All Booking Lists
     app.get('/admin/bookings',ensureAuthenticated, BookingController.bookingLists );
 
-
-    app.get('/bookings', BookingController.booking);
-    
     app.get('/admin/reservation/views/:id',ensureAuthenticated, BookingController.showDetails);
+
+    //Delete reservation 
+    app.delete("/admin/reservation/:id",ensureAuthenticated, BookingController.delete);
+
+
+
 
 
 

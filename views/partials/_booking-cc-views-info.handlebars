@@ -7,20 +7,20 @@
                      <div class="row">
 
                             <div class="col s12 m6 l6 input-field">
-                                  <select name="cccompany" id="cccompany">
-                                           
+                                  <select name="cccompany" id="cccompany" disabled>
+                                           {{#select cccompany }}
                                            <option value="Visa Card" >Visa Card</option>
                                             <option value="Master Card" >Master Card</option>
                                             <option value="Amex" >Amex</option>
                                             <option value="JCB" >JCB</option>
                                             <option value="China Union Pay" >China Union Pay</option>
-                                           
+                                           {{/select }}
                             </select>
                                         <label for="cccompany">Card Company</label>
                             </div>
                             
                             <div class="col s12 m6 l6 input-field">
-                                <input type="text"  name="ccno" value="{{ ccno }}">
+                                <input type="text"  name="ccno" value="{{ ccno }}" disabled>
                                 <label for="ccno">Card No. (Ex. 1111-1111-1111-1111)</label>
                             </div>
 
@@ -29,12 +29,12 @@
 
                      <div class="row">
                             <div class="col s12 m6 l6 input-field">
-                                <input type="text"  name="ccexp" value="{{ ccexp }} ">
+                                <input type="text"  name="ccexp" value="{{ ccexp }}" disabled>
                                 <label for="ccexp">Expire Date ( dd/yy )</label>
                             </div>
                             
                             <div class="col s12 m6 l6 input-field">
-                                <input type="text"  name="ccname" value="{{ ccname }}">
+                                <input type="text"  name="ccname" value="{{ ccname }}" disabled>
                                 <label for="ccname">Name of Card Holder</label>
                             </div>
 

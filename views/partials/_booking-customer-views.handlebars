@@ -1,15 +1,10 @@
 {{!-- Customer Information - --}}
 
 
-
+{{> _booking-btn-back-edit }}
 
 <div class="container">
-    {{#each booking }}
-    <div class="row">
-        <a href="/admin/bookings" class="btn-flat left" >Back</a>
-        <a href="/admin/booking/edit/{{ _id }}" class="btn-flat right" >Edit</a>
-    </div>
-    {{/each}}
+    
     <div class="row card" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
 
         <div class="col s12 m12 l12" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
@@ -26,24 +21,24 @@
             {{#each booking }}
             <div class="row">
                 <div class="col s12 m6 l6 input-field">
-                    <input type="text" name="bookingId" id="bookingId" value="{{ _id }}">
+                    <input type="text" name="bookingId" id="bookingId" value="{{ _id }}" disabled>
                     <label for="bookingId">Booking ID.</label>
                 </div>
 
                 <div class="col s12 m6 l6 input-field">
-                    <input type="text" name="bookingStatus" id="bookingStatus" value="{{ status }}">
+                    <input type="text" name="bookingStatus" id="bookingStatus" value="{{ status }}" disabled>
                     <label for="bookingStatus">Booking Status</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col s12 m6 l6 input-field">
-                    <input type="text" name="fname" value="{{fname}}">
+                    <input type="text" name="fname" value="{{fname}}" disabled>
                     <label for="fname">First Name</label>
                 </div>
 
                 <div class="col s12 m6 l6 input-field">
-                    <input type="text" name="lname" value="{{lname}}">
+                    <input type="text" name="lname" value="{{lname}}" disabled>
                     <label for="lname">Family Name</label>
                 </div>
             </div>
@@ -51,19 +46,19 @@
 
             <div class="row">
                 <div class="col s12 m12 l12 input-field">
-                    <input type="text" value="{{email}}">
+                    <input type="text" value="{{email}}" disabled>
                     <label for="email">Email Address</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col s12 m12 l12 input-field">
-                    <input type="text" name="companyname" value="{{companyname}}">
+                    <input type="text" name="companyname" value="{{companyname}}" disabled>
                     <label for="companyname">Company Name.</label>
                 </div>
 
                 <div class="col s12 m12 l12 input-field">
-                    <input type="text" name="addr" value="{{addr}}">
+                    <input type="text" name="addr" value="{{addr}}" disabled>
                     <label for="addr">Address</label>
 
                 </div>
@@ -73,12 +68,12 @@
             <div class="row">
 
                 <div class="col s12 m6 l6 input-field">
-                    <input type="text" name="phone" value="{{phone}}">
+                    <input type="text" name="phone" value="{{phone}}" disabled>
                     <label for="phone">Telephone</label>
                 </div>
 
                 <div class="col s12 m6 l6 input-field">
-                    <input type="text" name="fax" value="{{fax}}">
+                    <input type="text" name="fax" value="{{fax}}" disabled>
                     <label for="fax">Facimile</label>
                 </div>
 
@@ -87,18 +82,18 @@
 
             <div class="row">
                 <div class="col s12 m4 l4 input-field">
-                    <input type="text" class="datepicker" name="arvdate" value="{{arvdate}}">
+                    <input type="text" class="datepicker" name="arvdate" value="{{arvdate}}" disabled>
                     <label for="arvdate">Arrival Date</label>
                 </div>
 
 
                 <div class="col s12 m4 l4 input-field">
-                    <input type="text" name="arvflight" value="{{arvflight}}">
+                    <input type="text" name="arvflight" value="{{arvflight}}" disabled>
                     <label for="arvflight">Flight No.</label>
                 </div>
 
                 <div class="col s12 m4 l4 input-field">
-                    <input type="text" class="timepicker" name="arvtime" value="{{arvtime}}">
+                    <input type="text" class="timepicker" name="arvtime" value="{{arvtime}}" disabled>
                     <label for="arvtime">Time</label>
                 </div>
 
@@ -106,17 +101,17 @@
 
             <div class="row">
                 <div class="col s12 m4 l4 input-field">
-                    <input type="text" class="datepicker" name="dptdate" value="{{dptdate}}">
+                    <input type="text" class="datepicker" name="dptdate" value="{{dptdate}}" disabled>
                     <label for="dptdate">Departure Date</label>
                 </div>
 
                 <div class="col s12 m4 l4 input-field">
-                    <input type="text" name="dptflight" value="{{dptflight}}">
+                    <input type="text" name="dptflight" value="{{dptflight}}" disabled>
                     <label for="dptflight">Flight No.</label>
                 </div>
 
                 <div class="col s12 m4 l4 input-field">
-                    <input type="text" class="timepicker" name="dpttime" value="{{dpttime}}">
+                    <input type="text" class="timepicker" name="dpttime" value="{{dpttime}}" disabled>
                     <label for="dpttime">Time</label>
                 </div>
             </div>
@@ -132,7 +127,7 @@
 
                     <div class="row">
                         <div class="col s12 m12 l12 input-field">
-                            <input type="text" name="specialReq" value="{{specialReq}}">
+                            <input type="text" name="specialReq" value="{{specialReq}}" disabled>
                             <label for="specilReq">Your special request</label>
                         </div>
 
@@ -155,12 +150,7 @@
 
 </div>
 
-{{#each booking }}
-    <div class="row">
-        <a href="/admin/bookings" class="btn-flat left" >Back</a>
-        <a href="/admin/booking/edit/{{ _id }}" class="btn-flat right" >Edit</a>
-    </div>
-    {{/each}}
+{{> _booking-btn-back-edit }}
 
 
    

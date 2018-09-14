@@ -20,7 +20,7 @@
                     <th><h5>Booking ID</h5></th>
                     <th><h5>Name</h5></th>
                     <th><h5>Email Address</h5></th>
-                    <th><h5>Booking Made</h5></th>
+                    {{!-- <th><h5>Booking Made</h5></th> --}}
                     {{!-- <th><h5>Status</h5></th> --}}
                     <th colspan="3" class="center-align"><h5>Manage</h5></th>
 
@@ -44,11 +44,7 @@
                     <td>
                        {{ email }}
                     </td>
-                    <td>
-                        {{formatDate bookingTimeStamp On 'Do MMMM YYYY'}}
-                    </td>
-
-                    {{!-- <td>{{ status }}</td> --}}
+                   
                     <td class="right-align">
                         <a href="/admin/reservation/views/{{ id }}" >View</a>
                     </td>
@@ -56,7 +52,7 @@
                         <a href="/admin/reservation/{{ id }}" >Edit</a>
                     </td>
                     <td class="right-align">
-                        <form action="/admin/tour/{{ id }}?_method=DELETE" method="post" id="delete-form">
+                        <form action="/admin/reservation/{{ id }}?_method=DELETE" method="post" id="delete-form">
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit">Delete</button>
                         </form>
@@ -73,7 +69,7 @@
         </table>
 
         {{else}}
-        <p>Currently is no bookings available!</p>
+        <p>Currently is no reservations available!</p>
         {{/if}}
 
 

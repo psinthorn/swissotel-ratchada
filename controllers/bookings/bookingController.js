@@ -181,7 +181,7 @@ reservation(req, res){
  //Booking lists   
  bookingLists(req, res){
     
-        BookingHotel.find({}).sort({ bookingTimeStamp: -1})
+        BookingHotel.find({}).sort({ BookingTimeStamp: -1})
         .then( bookings => {
             res.status(200).render("admin/booking-lists", { bookings: bookings });
         });
@@ -206,31 +206,42 @@ reservation(req, res){
 
         BookingHotel.find({_id: id })
         .then( booking => {
-            let spmrsingleCheck = {} ;
-            let spmrtwinCheck = {};
+
+            //Json Object for check status
+            let roomsCheck = {} ;
+           
+            //Check rooms selection for Swiss Premier Room Sigle
             if( booking[0].spmrsingle == "on"){
-                spmrsingleCheck.check = "checked"
-            }else if(booking[0].spmrtwin == "on"){
-                spmrtwinCheck.check = "checked"               
+                roomsCheck.spmrSingle = "checked"
+
             }else{
-                spmrsingleCheck.check = " "
-                spmrtwinCheck.check = " "
+                roomsCheck.spmrSingle = " "
+                             
+            }
+            
+            //Check rooms selection for Swiss Premier Room Twin
+            if( booking[0].spmrtwin == "on"){
+                roomsCheck.spmrTwin = "checked"  
+
+            }else{
+                
+                roomsCheck.spmrTwin = " "
             }
 
-            // console.log(booking[0].spmrsingle);
-            // console.log(booking[0].spmrtwin);
-            // console.log(spmrsingleCheck.check);
-            // console.log(spmrtwinCheck.check);
+            roomsCheck.extraBed = booking[0].xtrb == "on" ? "checked" : " ";
+
             //res.send(booking);
-            res.render('bookings/show',{ booking: booking, spmrsingleCheck: spmrsingleCheck, spmrtwinCheck: spmrtwinCheck } );
+            res.render('bookings/show',{ booking: booking, roomsCheck: roomsCheck } );
         });
     },
 
-    // delete(req, res){
-    //     const id = req.params.id;
-
-    //     BookingHotel.findByIdAndRemove({_id: id})
-    // },
+    delete(req, res){
+        const id = req.params.id;
+        BookingHotel.findByIdAndRemove({ _id: id })
+        .then( () => {
+            res.status(200).redirect('/admin/bookings');
+        })
+    },
 
 }
 
