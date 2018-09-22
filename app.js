@@ -1,3 +1,14 @@
+//load user model
+require('./models/Category');
+require('./models/Contents');
+require('./models/Users');
+require('./models/Contact');
+require('./models/About');
+require('./models/UserAdmin');
+require('./models/Slide');
+require('./models/Policy');
+
+//Laod dependencies
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
@@ -9,8 +20,6 @@ const aws = require('aws-sdk');
 const paypal = require('paypal-rest-sdk');
 
 
-
-//const multer = require('multer');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
@@ -18,17 +27,6 @@ const session = require('express-session');
 const keys  = require('./config/key');
 const upload = require('express-fileupload');
 const flash = require('connect-flash');
-
-//load user model
-require('./models/Category');
-require('./models/Contents');
-require('./models/Users');
-require('./models/Contact');
-require('./models/About');
-require('./models/UserAdmin');
-require('./models/Slide');
-require('./models/Policy');
-
 
 //load router
 const admin = require('./routes/admin');
@@ -43,6 +41,7 @@ const slide = require('./routes/slide');
 const payment = require('./routes/payment');
 const booking = require('./routes/booking');
 const policy = require('./routes/policy');
+const pdfmake = require('./routes/pdfMake');
 
 const app = express();
 
@@ -163,6 +162,7 @@ slide(app);
 payment(app);
 booking(app);
 policy(app);
+pdfmake(app);
 
 module.exports = app;
 

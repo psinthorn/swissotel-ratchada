@@ -7,7 +7,7 @@ module.exports = {
  
  //Make new pdf
  makepdf(req, res){
-    
+    res.status(200).send("PDF make");
 },
 
 }
