@@ -70,8 +70,8 @@ reservation(req, res){
 
         let mailOptionsNotice = {
             from: '"Swissotel Bangkok Ratchada" <slc.reservations@Swissotel.com>', // sender address
-            // to: `reservations@bee-slc.com`,
-            to: `ecosyn1980@gmail.com`,
+            to: `reservations@bee-slc.com`,
+            
             subject: 'New Booking VIAVI RSU APAC' , // Subject line
             text: ` New reservation from https://reservation.bee-slc.com web apps.
             
