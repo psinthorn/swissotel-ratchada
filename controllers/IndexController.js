@@ -10,8 +10,6 @@ const Policy = require('./../models/Policy');
 module.exports = {
 
 
-
-
 index(req, res){
 
     let promisesAll = [

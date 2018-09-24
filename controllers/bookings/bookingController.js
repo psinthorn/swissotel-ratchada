@@ -56,40 +56,22 @@ reservation(req, res){
 
         let mailOptions = {
             from: '"Swissotel Bangkok Ratchada" <slc.reservations@Swissotel.com>', // sender address
-            //to: req.body.to, // list of receivers
-            //to: toEmail,
-            //to: 'seaflyers@hotmail.com',
             to: `${ booking.email }`,
             subject: 'Booking VIAVI RSU APAC' , // Subject line
             text: `Dear ${ booking.fname  } 
 
+            Thank you for your reservation at Swisshotel Bangkok Ratchada.           
+            Please note, the Booking ID: ${ booking._id }  is not your hotel booking confirmation.            
+            You will receive a confirmation email within 2-3 working days to confirm your reservation. This email will include your seven-digit Confirmation Number.           
+            If you do not hear from us within 3 working days, please contact SLC.Reservations@Swissotel.com with your Booking ID number.
             Thank you for reservation with Swissotel Bangkok Ratchada.
-            
-            *Your Booking Information*
-            Booking ID: ${ booking._id}
-           
-            Swissotel Bangkok Ratchada
-
-             `, // plain text body
-            //html: '<b>NodeJS Email Tutorial</b>' // html body
-
-
-            // Arrival Date: ${ booking.arvdate }
-            // Flight No. ${ booking.arvflight }
-            // Arrival Time: ${ booking.arvtime}
-           
-            // Departure Date: ${ booking.dptdate }
-            // Flight No. ${ booking.dptflight }
-            // Departure Time: ${ booking.dpttime}
+             `, 
         };
-
-        //customer name on paypal
-        //Customer Name:  ${ payment.payer.payer_info.first_name  } 
 
         let mailOptionsNotice = {
             from: '"Swissotel Bangkok Ratchada" <slc.reservations@Swissotel.com>', // sender address
-            to: `reservations@bee-slc.com`,
-           
+            // to: `reservations@bee-slc.com`,
+            to: `ecosyn1980@gmail.com`,
             subject: 'New Booking VIAVI RSU APAC' , // Subject line
             text: ` New reservation from https://reservation.bee-slc.com web apps.
             
@@ -111,6 +93,9 @@ reservation(req, res){
             - Swiss Premier Room Twin:    ${ booking.spmrtwin }
 
             []Extra Bed: ${ booking.xtrb}
+
+            []Special Request: 
+            - ${ booking.specialReq }
 
             Airport Transfers
             
@@ -135,8 +120,7 @@ reservation(req, res){
             Swissotel Bangkok Ratchada : Web Apps Online Booking
             Full reservation infomation: https://reservation.bee-slc.com/admin/bookings
         
-             `, // plain text body
-            //html: '<b>NodeJS Email Tutorial</b>' // html body
+             `, 
         };
 
         if(!booking.email){

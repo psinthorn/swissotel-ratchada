@@ -59,6 +59,9 @@ const BookingHotelSchema = new Schema({
         type: String,
         default: "off"
     } ,
+    suffix:{
+        type: String,
+    },
     fname:{
         type: String,
     } ,
