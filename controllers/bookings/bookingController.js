@@ -36,7 +36,7 @@ reservation(req, res){
     BookingHotel.create(booking)
     .then( booking => {
         const id = booking._id;
-        const suffix = booking.suffix;
+        const suffixTitle = booking.suffix;
         const fName = booking.fname;
         const lName = booking.lname
 
@@ -153,9 +153,6 @@ reservation(req, res){
     
 
         }
-
-       
-       
 
        // res.send(booking);
         res.status(200).redirect('/thank-you?id='+ id + '&suffix='+ suffix + '&fname='+ fName + '&lname='+ lName);
