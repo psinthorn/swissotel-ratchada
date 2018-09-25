@@ -61,7 +61,7 @@ reservation(req, res){
             subject: 'Booking VIAVI RSU APAC' , // Subject line
             text: `Dear ${ booking.suffix} ${ booking.fname } 
 
-            Thank you for your reservation at Swisshotel Bangkok Ratchada.           
+            Thank you for your reservation at Swissotel Bangkok Ratchada.           
             Please note, the Booking ID: ${ booking._id }  is not your hotel booking confirmation.            
             You will receive a confirmation email within 2-3 working days to confirm your reservation. This email will include your seven-digit Confirmation Number.           
             If you do not hear from us within 3 working days, please contact SLC.Reservations@Swissotel.com with your Booking ID number.
