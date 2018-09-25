@@ -36,6 +36,7 @@ reservation(req, res){
     BookingHotel.create(booking)
     .then( booking => {
         const id = booking._id;
+        const suffix = booking.suffix;
         const fName = booking.fname;
         const lName = booking.lname
 
@@ -58,7 +59,7 @@ reservation(req, res){
             from: '"Swissotel Bangkok Ratchada" <slc.reservations@Swissotel.com>', // sender address
             to: `${ booking.email }`,
             subject: 'Booking VIAVI RSU APAC' , // Subject line
-            text: `Dear ${ booking.fname  } 
+            text: `Dear ${ booking.suffix} ${ booking.fname } 
 
             Thank you for your reservation at Swisshotel Bangkok Ratchada.           
             Please note, the Booking ID: ${ booking._id }  is not your hotel booking confirmation.            
@@ -70,7 +71,8 @@ reservation(req, res){
 
         let mailOptionsNotice = {
             from: '"Swissotel Bangkok Ratchada" <slc.reservations@Swissotel.com>', // sender address
-            to: `reservations@bee-slc.com`,
+            // to: `reservations@bee-slc.com`,
+            to: `ecosyn1980@gmail.com`,
             
             subject: 'New Booking VIAVI RSU APAC' , // Subject line
             text: ` New reservation from https://reservation.bee-slc.com web apps.
@@ -79,7 +81,7 @@ reservation(req, res){
             ______________________________________________________________________________
             - Booking ID: ${ booking._id}
            
-            - Customer Name: ${ booking.fname } ${ booking.lname }
+            - Customer Name: ${ booking.suffix} ${ booking.fname } ${ booking.lname }
             - Company Name: ${ booking.companyname}
             - Address: ${ booking.addr}
             - Email: ${ booking.email }
@@ -92,7 +94,7 @@ reservation(req, res){
             - Swiss Premier Room Single: ${ booking.spmrsingle } 
             - Swiss Premier Room Twin:    ${ booking.spmrtwin }
 
-            []Extra Bed: ${ booking.xtrb}
+            []Extra Bed: ${ booking.xtrb }
 
             []Special Request: 
             - ${ booking.specialReq }
@@ -156,7 +158,7 @@ reservation(req, res){
        
 
        // res.send(booking);
-        res.status(200).redirect('/thank-you?id='+ id + '&fname='+ fName + '&lname='+ lName);
+        res.status(200).redirect('/thank-you?id='+ id + '&suffix='+ suffix + '&fname='+ fName + '&lname='+ lName);
     });
     
     },

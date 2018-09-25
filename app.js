@@ -65,6 +65,13 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
+    next();
+  });
+
 //Load config
 require('./config/passport')(passport);
 
