@@ -1,0 +1,358 @@
+/*****************************/
+/************ Materialize ****/
+/*****************************/
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body, html  {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: Roboto,Helvetica Neue,sans-serif;
+    color: #455a64;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  .nav-wrapper .fa-bars {
+    font-size: 30px;
+
+  }
+
+  .nav-wrapper  {
+    
+    background-color:     #ffffff; 
+    /*$brand-primary:           #084672;*/
+    /*materialize color #0288d1 light-blue darken-2*/
+    padding: 5px;
+    margin: 5px;
+      
+    
+  }
+
+  footer{
+      margin-top: 30px;
+
+  }
+
+  #delete-form{
+    display: inline;
+  }
+
+  .text-capitalize{
+    text-transform: capitalize;
+  }
+
+
+
+
+
+  .banner-index {
+    height: 95vh;
+    /* background-image: url(../imags/natours/nat-5.jpg); */
+    background-size: cover;
+    background-color: #777;
+    background-position: top;
+    
+  }
+
+  .slider {
+    height: 95vh;
+    /* background-image: url(../imags/natours/nat-5.jpg); */
+    background-size: cover;
+    background-color: #777;
+    background-position: top;
+    
+  }
+
+  .header-text-01 {
+    /* color: #455a64; */
+    color: #084672;
+  
+  }
+
+
+  .social-section {
+    background-color: #ffffff;
+    margin-top: 70px;
+    /* padding-top: 180px; */
+    padding-bottom: 120px;
+    color: #455a64;
+  }
+
+
+
+
+
+  .blue-grey-text {
+    color: #455a64;
+    
+    
+  }
+
+  .blue-grey-text:hover {
+    color: #455a64;
+    font-size: 105%;
+  
+    
+  }
+
+  .btn:hover {
+   
+    font-size: 100%;
+   
+    /* transition: all 500ms ease;  */
+  }
+
+ 
+/* .menu-icon:hover {
+  font-size: 130%;
+  color: white;
+  transition-timing-function: ease-out;
+} */
+
+.font-logo {
+  font-family: herculanum;
+  font-size: 1.5rem;
+}
+
+.credit-footer:hover {
+  color: white;
+  transition-timing-function: ease-out;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+a:hover {
+  /*color: white;*/
+   /*font-size: 110%; */
+   transition-timing-function: ease-out;
+}
+
+.logo {
+  display: inline-block;
+  /* height: 100%; */
+}
+
+/* .logo>img {
+  vertical-align: middle;
+  
+} */
+
+.font-grey {
+  color: #777
+}
+
+.fac-inline {
+  display: inline-block;
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+ }
+
+ .total-images {
+   display: block;
+  text-align: right;
+  padding-right: 30px;
+  font-size: 1.5rem;
+
+   
+ }
+
+ .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.gallery {
+  padding: 0px;
+}
+
+
+
+
+/*****************************/
+/*From here work on css grid */
+/*****************************/
+
+.menu-stack {
+
+  display: grid;
+
+  grid-template-rows: repeat(2, 30px);
+  /*grid-template-columns: 1fr max-content;*/
+  grid-template-columns: repeat(2, 15px max-content);
+  font-size: 1rem;
+  color: white;
+  align-items: start;
+  /*justify-content: end;*/
+   /*justify-items: end; */
+}
+
+/*Menu will hide on small only*/
+.email-icon {
+   align-self: center;
+  justify-self: end;
+  padding-right: 10px;
+
+
+  grid-row: 1/2;
+  grid-column: 1/2;
+
+}
+
+.email-stack {
+
+  align-self: center;
+  justify-self: end;
+
+  grid-row: 1/2;
+  grid-column: 2/3;
+  padding-right: 20px;
+  
+}
+
+.tel-icon {
+  align-self: center;
+  justify-self: end;
+  padding-right: 10px;
+
+  grid-row: 2/3;
+  grid-column: 1/2;
+
+}
+
+.tel-stack {
+  align-self: center;
+  justify-self: start;
+  padding-right: 20px;  
+
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+
+
+/*****************************/
+/*From here work on css grid */
+/*****************************/
+
+.menu-stack-small {
+
+  display: grid;
+
+  grid-template-rows: 55px;
+  /*grid-template-columns: 1fr max-content;*/
+  grid-template-columns: repeat(2, 30px);
+  font-size: 1rem;
+  color: white;
+  align-items: end;
+  /*padding: 5px;*/
+  /*justify-content: end;*/
+   /*justify-items: end; */
+}
+
+/*Menu will show on small only*/
+.email-icon-small {
+  align-self: center;
+  justify-self: end;
+  padding-right: 40px;
+
+
+  grid-row: 1/2;
+  grid-column: 1/2;
+
+}
+
+
+
+.tel-icon-small {
+  align-self: center;
+  justify-self: end;
+  padding-right: 20px;
+
+  grid-row: 1/2;
+  grid-column: 2/3;
+
+}
+
+
+/*New top menu*/
+
+.top-menu {
+  display: grid;
+  grid-template-rows: 60px;
+  grid-template-columns: max-content max-content 1fr 250px;
+  /*width: 100%;*/
+
+
+
+}
+
+.top-side-nav {
+  /*background-color: grey;*/
+  -webkit-align-self: center; /* Safari 7.0+ */
+  align-self: center;
+}
+
+.top-logo {
+  /*background-color: green;*/
+  /*align-self: ;*/
+  /*justify-self:;*/
+  /*margin-left: 20px;*/
+  padding-top: 2px;
+  
+}
+
+.top-main-menu {
+  /*background-color: blue;*/
+  /*align-self: start;*/
+  padding-right: 20px;
+  padding-left: 20px; 
+  justify-self: center;
+
+}
+
+
+
+.to-uppercase {
+  text-transform: uppercase;
+}
+
+i.include-check {
+  color: #0288d1;
+}
+
+i.exclude-check {
+  color: #ff5252;
+}
+
+i.menu-icon {
+  color: #ff5252;
+}
+
+
+
+
+
