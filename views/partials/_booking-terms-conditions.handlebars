@@ -1,15 +1,13 @@
+<div class="row card" style="background-color: #fafafa;">
 
-        <div class="row card" style="background-color: #fafafa;">
-            
-               
-                <div class="col s12 m12 l12" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                    {{#each policy}}
-                    <b>{{{ title }}}</b>
-                    <div class="hr-1px"></div>
-                        
-                            {{{ desc }}}
-                        {{/each}}
-                 </div>
-                
-              
-        </div>  
+
+        <div class="col s12 m12 l12" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;padding-bottom: 30px">
+                {{#each policy}}
+                <b>{{{ title }}}</b>
+                <div class="hr-1px"></div>
+
+                {{{ desc }}} {{/each}}
+        </div>
+
+
+</div>

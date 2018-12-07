@@ -27,6 +27,7 @@ const session = require('express-session');
 const keys  = require('./config/key');
 const upload = require('express-fileupload');
 const flash = require('connect-flash');
+const cors = require('cors');
 
 //load router
 const admin = require('./routes/admin');
@@ -46,12 +47,16 @@ const pdfmake = require('./routes/pdfMake');
 const app = express();
 
 
+
 //use sessions for tracking logins
 app.use(session({
     secret: 'swissotel',
     resave: true,
     saveUninitialized: false
   }));
+
+  //Cross origin 
+  app.use(cors())
 
 //connect-flash middleware
 app.use(flash());
@@ -65,12 +70,12 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
-    next();
-  });
+// app.use(function(req, res, next) {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.setHeader('Access-Control-Allow-Headers', '*');
+//     res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
+//     next();
+//   });
 
 //Load config
 require('./config/passport')(passport);
