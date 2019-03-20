@@ -1,85 +1,53 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const Contact = require('../models/Contact');
-const About = require('../models/About');
-const Policy = require('./../models/Policy');
+const Contact = require("../models/Contact");
+const About = require("../models/About");
+const Policy = require("./../models/Policy");
 //const Transfer = require('./../models/Transfer');
 
-
-
 module.exports = {
+  index(req, res) {
+    let promisesAll = [Contact.find({}).exec()];
 
-
-index(req, res){
-
-    let promisesAll = [
-
-        // Tour.find({status: 'Public'}).sort({ date: -1}).exec(),
-        // Intro.find({ status: 'Public'}).exec(),
-        Contact.find({}).exec()
-    ];
-
-    Promise.all(promisesAll)
-    .then( ([
-        //tours, 
-        //intro, 
-        contact]) => {
-            res.render('index/welcome', 
-            { 
-                //tours: tours, 
-                //intro: intro, 
-                contact: contact });          
+    Promise.all(promisesAll).then(([//tours,
+      contact]) => {
+      res.render("index/welcome", {
+        contact: contact
+      });
     });
-    
-}, 
+  },
 
-
-
-//Thank you 
-thankYou(req, res){
+  //Thank you
+  thankYou(req, res) {
     const id = req.query.id;
     const lname = req.query.lname;
     const fname = req.query.fname;
+    res.render("index/thank-you", { id: id, lname: lname, fname: fname });
+  },
 
-    res.render('index/thank-you', {id: id, lname: lname, fname: fname});
-},
-
-
-about(req, res){
-    About.findOne({})
-        .then( about => {
-            res.render('index/about', { about: about });
-        })  
-},
-
- termPolicy(req, res){
-
-    Policy.find({})
-    .then(policy => {
-        res.render('index/term-policies', {policy: policy });
+  about(req, res) {
+    About.findOne({}).then(about => {
+      res.render("index/about", { about: about });
     });
- },
+  },
 
+  termPolicy(req, res) {
+    Policy.find({}).then(policy => {
+      res.render("index/term-policies", { policy: policy });
+    });
+  },
 
-contact(req, res){
+  contact(req, res) {
+    Contact.findOne({}).then(contact => {
+      res.render("index/contact-us", { contact: contact });
+    });
+  },
 
-    Contact.findOne({})
-        .then( contact => {
-            res.render('index/contact-us', { contact: contact });
-        });
-    
-},
+  maps(req, res) {
+    res.render("index/maps");
+  },
 
-maps(req, res){
-
-    res.render('index/maps');
-
-},
-
-
-geocode(req, res){
-    res.render('index/geocode');
-}
-
-
-}
+  geocode(req, res) {
+    res.render("index/geocode");
+  }
+};

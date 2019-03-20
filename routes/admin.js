@@ -1,4 +1,4 @@
-const adminController = require("./../controllers/adminController");
+const adminController = require("../controllers/admin/adminController");
 const { ensureAuthenticated, ensureGuest } = require("./../helpers/auth");
 
 module.exports = app => {

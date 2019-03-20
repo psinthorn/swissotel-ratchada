@@ -3,8 +3,11 @@
 /.pnp
 .pnp.js
 
+
+
 # testing
 /coverage
+/test
 
 # production
 /build
@@ -21,3 +24,5 @@ yarn-debug.log*
 yarn-error.log*
 
 
+#Keys
+dev.js 
