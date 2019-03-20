@@ -43,10 +43,9 @@ const booking = require("./routes/booking");
 const policy = require("./routes/policy");
 const pdfmake = require("./routes/pdfMake");
 
+const app = express();
 //Cross origin
 app.use(cors());
-
-const app = express();
 
 //use sessions for tracking logins
 app.use(
