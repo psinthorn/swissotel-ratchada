@@ -180,7 +180,7 @@ module.exports = {
 
   //Booking lists
   bookingLists(req, res) {
-    BookingHotel.find({})
+    BookingHotel.find({ event: "sita-aero-2019" })
       .sort({ BookingTimeStamp: -1 })
       .then(bookings => {
         res.status(200).render("admin/booking-lists", { bookings: bookings });

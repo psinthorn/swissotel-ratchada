@@ -1,7 +1,7 @@
-const app = require('./app');
+const app = require("./app");
 
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
-    console.log(`Swissotel Server started on ${port}`);
+  console.log(`Swissotel Server started on ${port}`);
 });

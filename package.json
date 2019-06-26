@@ -1,7 +1,7 @@
 {
-  "name": "soct-v1",
+  "name": "Swissotel-Ratchada",
   "version": "1.0.0",
-  "description": "write your journey life and share to the world.",
+  "description": "Swissotel Ratchada Reservation Form",
   "main": "index.js",
   "directories": {
     "start": "node index.js"
@@ -31,11 +31,8 @@
     "pdfmake": "^0.1.38",
     "request": "^2.87.0"
   },
-  "devDependencies": {
-    "mocha": "^5.2.0"
-  },
+  "devDependencies": {},
   "scripts": {
-    "test": "mocha",
     "dev": "nodemon index.js",
     "start": "node index.js"
   },

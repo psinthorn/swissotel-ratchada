@@ -1,6 +1,6 @@
- {{!-- Maps Start Here --}} 
- 
- 
+{{!-- Maps Start Here --}}
+
+
 
 
 {{!-- <input type="hidden" id="addr1" value="{{ addr1 }}">
@@ -11,7 +11,7 @@
 <input type="hidden" id="postCode" value="{{ postCode }}"> --}}
 
 <input type="hidden" id="latData" value="{{ contact.lat }}">
-<input type="hidden" id="lngData" value="{{ contact.lng }}"> 
+<input type="hidden" id="lngData" value="{{ contact.lng }}">
 
 
 
@@ -27,17 +27,20 @@
         <script>
 
 
-                {{!-- var addr1 = document.getElementById("addr1").value;
-                var district = document.getElementById("district").value;
-                var city = document.getElementById("city").value;
-                var province = document.getElementById("province").value;
-                var country = document.getElementById("country").value;
-                var postCode = document.getElementById("postCode").value;
+            {
+                {
+                    !-- var addr1 = document.getElementById("addr1").value;
+                    var district = document.getElementById("district").value;
+                    var city = document.getElementById("city").value;
+                    var province = document.getElementById("province").value;
+                    var country = document.getElementById("country").value;
+                    var postCode = document.getElementById("postCode").value;
 
-                var location = addr1 + ' ' + district + ' ' + city + ' ' + province + ' ' + country + ' ' + postCode;
-               --}}
-            
-            
+                    var location = addr1 + ' ' + district + ' ' + city + ' ' + province + ' ' + country + ' ' + postCode;
+                    --}
+            }
+
+
             function initMap() {
 
 
@@ -61,7 +64,7 @@
                 });
 
                 var infoWindow = new google.maps.InfoWindow({
-                    content: 'Samui Ocean Tour'
+                    content: 'Swissotel Bangkok Ratchada'
                 });
 
                 marker.addListener('click', function () {
@@ -72,8 +75,9 @@
         </script>
 
 
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc1_pG-wOCWTXkuIw33Mjz57wkGdm3Pg0&callback=initMap">
-        </script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc1_pG-wOCWTXkuIw33Mjz57wkGdm3Pg0&callback=initMap">
+            </script>
 
 
 

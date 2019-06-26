@@ -8,7 +8,9 @@
             <div class="row center" style="padding-top: 20px">
                 <div class="col s12 m12 l12">
                     <h5>HOTEL RESERVATION FORM – THE SWISSOTEL BANGKOK RATCHADA</h5>
-                    <img class="img-responsive" src="images/Logo_THA2019.jpg" alt="Swissotel Bangkok Ratchada" style="max-width: 100%">
+                    <h5>SITA AERO ASIA PACIFIC 22-26 July 2019
+                    </h5>
+                    {{!-- <img class="img-responsive" src="images/Logo_THA2019.jpg" alt="Swissotel Bangkok Ratchada" style="max-width: 100%"> --}}
                 </div>
 
             </div>
@@ -16,11 +18,18 @@
 
 
 
-        {{> _booking-room-info }} {{!-- Extra Bed --}} {{> _booking-extrabed-info }} {{!-- Airport Transfers - --}} {{> _booking-airport-transfers}}
-        {{!-- Meet and Greet at Airport - --}} {{!-- {{> _booking-meet-and-greet-info }} --}} {{!-- terms and condition --}}
+        {{> _booking-room-info }} {{!-- Extra Bed --}} {{> _booking-extrabed-info }} {{!-- Airport Transfers - --}}
+        {{> _booking-meeting-info }}
+        {{> _booking-airport-transfers}}
+        {{!-- Meet and Greet at Airport - --}} {{!-- {{> _booking-meet-and-greet-info }} --}}
+        {{!-- terms and condition --}}
         {{> _booking-terms-conditions }} {{!-- customer info --}} {{> _booking-customer-info }}
 
 
     </form>
 
+
+
 </div>
+
+{{> _maps_image }}
