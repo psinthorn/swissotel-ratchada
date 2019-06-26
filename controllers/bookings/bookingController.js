@@ -29,14 +29,16 @@ module.exports = {
       const lName = booking.lname;
 
       let transporter = nodeMailer.createTransport({
-        host: "mail.directbooking.co.th",
+        host: "mail.swissotelratchada.com",
         //port: 25,
         secure: true,
         port: 465,
         //secure: false,
         auth: {
-          user: "reservations@bee-slc.com",
-          pass: "bee#$Slc"
+          // user: "reservations@bee-slc.com",
+          // pass: "bee#$Slc"
+          user: "smtp@swissotelratchada.com",
+          pass: "yEm9_=!Ro_(V"
         },
         tls: {
           rejectUnauthorized: false
@@ -48,7 +50,8 @@ module.exports = {
         to: `${
           booking.email // sender address
         }`,
-        subject: "Swissotel Booking Reservation Confirmation- THA2019",
+        subject:
+          "Swissotel Booking Reservation Confirmation- SITA AERO ASIA PACIFIC",
         text: `Dear ${
           booking.suffix // Subject line
         } ${booking.fname} 
@@ -65,11 +68,11 @@ module.exports = {
 
       let mailOptionsNotice = {
         from: '"Swissotel Bangkok Ratchada" <slc.reservations@Swissotel.com>',
-        to: `reservations@bee-slc.com`,
-        subject: "Reservation Booking THA2019",
-        text: ` New reservation from https://reservation.bee-slc.com web apps., // Subject line  // sender address
-      
-            
+        // to: `reservations@bee-slc.com`,
+        to: `reservations@swissotelratchada.com`,
+        subject: "Reservation Booking - SITA AERO ASIA PACIFIC",
+        text: ` New reservation from https://reservation.swissotelratchada.com web apps., 
+        
             *Booking Information*
             ______________________________________________________________________________
             - Booking ID: ${booking._id}
@@ -96,8 +99,18 @@ module.exports = {
 
             []Extra Bed: ${booking.xtrb}
 
+            []Meeting Date Selection:
+            ____________________________________________________________________________
+            - 23 July 2019:    ${booking.meeting23} 
+            - 24 July 2019:    ${booking.meeting24}
+            - 25 July 2019:    ${booking.meeting25}
+            - 26 July 2019:    ${booking.meeting26}
+            ----------------------------------------------------------------------------
+           
             []Special Request: 
             - ${booking.specialReq}
+
+            ----------------------------------------------------------------------------
 
             Airport Transfers
             - Suvarnabhumi Airport - Hotel
@@ -134,7 +147,7 @@ module.exports = {
             - Credit Card Holder Name: ${booking.ccname}
            
             Swissotel Bangkok Ratchada : Web Apps Online Booking
-            Full reservation infomation: https://reservation.bee-slc.com/admin/bookings
+            Full reservation infomation: https://reservation.swissotelratchada.com/admin/bookings
         
              `
       };

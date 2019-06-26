@@ -42,6 +42,22 @@ const BookingHotelSchema = new Schema({
   specialReq: {
     type: String
   },
+  meeting23: {
+    type: String,
+    default: "off"
+  },
+  meeting24: {
+    type: String,
+    default: "off"
+  },
+  meeting25: {
+    type: String,
+    default: "off"
+  },
+  meeting26: {
+    type: String,
+    default: "off"
+  },
   camry5b9246247745312776fd4d76: {
     type: String,
     default: "off"
@@ -124,6 +140,10 @@ const BookingHotelSchema = new Schema({
   },
   ccname: {
     type: String
+  },
+  event: {
+    type: String,
+    default: "sita-aero-2019"
   }
 });
 
