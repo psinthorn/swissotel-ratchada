@@ -1,5 +1,7 @@
+require("dotenv").config("./../../.env");
 const mongoose = require("mongoose");
 const nodeMailer = require("nodemailer");
+const puppeteer = require("puppeteer");
 
 const BookingHotel = require("./../../models/BookingHotel");
 const Transfer = require("./../../models/Transfer");
@@ -8,6 +10,7 @@ const Policy = require("./../../models/Policy");
 module.exports = {
   //Booking Reservation Page
   eventBooking(req, res) {
+    console.log(process.env.EMAIL);
     let promiseAll = [Transfer.find({}).exec(), Policy.find({}).exec()];
     Promise.all(promiseAll).then(([transfers, policy]) => {
       res.status(200).render("index/event-booking", {
@@ -29,7 +32,7 @@ module.exports = {
       const lName = booking.lname;
 
       let transporter = nodeMailer.createTransport({
-        host: "mail.swissotelratchada.com",
+        host: process.env.SMTP_HOST,
         //port: 25,
         secure: true,
         port: 465,
@@ -37,8 +40,10 @@ module.exports = {
         auth: {
           // user: "reservations@bee-slc.com",
           // pass: "bee#$Slc"
-          user: "smtp@swissotelratchada.com",
-          pass: "yEm9_=!Ro_(V"
+          // user: "smtp@swissotelratchada.com",
+          // pass: "yEm9_=!Ro_(V"
+          user: process.env.SMTP_LOGIN,
+          pass: process.env.SMTP_PASSWORD
         },
         tls: {
           rejectUnauthorized: false
@@ -196,8 +201,66 @@ module.exports = {
     BookingHotel.find({ event: "sita-aero-2019" })
       .sort({ BookingTimeStamp: -1 })
       .then(bookings => {
-        res.status(200).render("admin/booking-lists", { bookings: bookings });
+        const total = bookings.length;
+
+        res
+          .status(200)
+          .render("admin/booking-lists", { bookings: bookings, total: total });
       });
+  },
+
+  //Booking lists -> pdf
+  bookingPdfTemplate(req, res) {
+    BookingHotel.find({ event: "sita-aero-2019" })
+      .sort({ BookingTimeStamp: -1 })
+      .then(bookings => {
+        res
+          .status(200)
+          .render("admin/booking-lists-pdf", { bookings: bookings });
+      });
+  },
+
+  // Generate booking list as pdf
+
+  bookingListsPdfGen(req, res) {
+    (async () => {
+      const browser = await puppeteer.launch();
+      const page = await browser.newPage();
+
+      // As protection page we need to authorization from system
+      // Navigate to login page for authorize
+      await page.goto(`http://localhost:8000/admin/login`, {
+        waitUntil: "networkidle0"
+      });
+      await page.type("#email", process.env.EMAIL);
+      await page.type("#password", process.env.PASSWORD);
+      await page.click("#submit");
+
+      // End authorization
+
+      // Navigate to page that need to create pdf
+      await page.goto(`http://localhost:8000/admin/bookings-pdf-template`, {
+        waitUntil: "networkidle2"
+      });
+
+      // #Save to server use this
+      // const pdf = await page.pdf({
+      //   path: `booking-info-${id}.pdf`,
+      //   format: "A4"
+      // });
+
+      const pdf = await page.pdf({
+        format: "A4",
+        landscape: false,
+        printBackground: true
+      });
+
+      await res.type("application/pdf");
+      await res.send(pdf);
+
+      await browser.close();
+      // return pdf;
+    })();
   },
 
   //ALl booking list
@@ -244,5 +307,88 @@ module.exports = {
     BookingHotel.findByIdAndRemove({ _id: id }).then(() => {
       res.status(200).redirect("/admin/bookings");
     });
+  },
+
+  delete(req, res) {
+    const id = req.params.id;
+    BookingHotel.findByIdAndRemove({ _id: id }).then(() => {
+      res.status(200).redirect("/admin/bookings");
+    });
+  },
+
+  //Booking info template
+  pdftemplate(req, res, next) {
+    const id = req.params.id;
+
+    BookingHotel.find({ _id: id }).then(booking => {
+      //Json Object for check status
+      let roomsCheck = {};
+
+      //Check rooms selection for Swiss Premier Room Sigle
+      if (booking[0].spmrsingle == "on") {
+        roomsCheck.spmrSingle = "checked";
+      } else {
+        roomsCheck.spmrSingle = " ";
+      }
+
+      //Check rooms selection for Swiss Premier Room Twin
+      if (booking[0].spmrtwin == "on") {
+        roomsCheck.spmrTwin = "checked";
+      } else {
+        roomsCheck.spmrTwin = " ";
+      }
+
+      roomsCheck.extraBed = booking[0].xtrb == "on" ? "checked" : " ";
+
+      //res.send(booking);
+      res.render("bookings/reservation-info", {
+        booking: booking,
+        roomsCheck: roomsCheck
+      });
+    });
+  },
+
+  pdf(req, res) {
+    const id = req.params.id;
+
+    (async () => {
+      const browser = await puppeteer.launch();
+      const page = await browser.newPage();
+
+      // As protection page we need to authorization from system
+      // Navigate to login page for authorize
+      await page.goto(`http://localhost:8000/admin/login`, {
+        waitUntil: "networkidle0"
+      });
+      await page.type("#email", process.env.EMAIL);
+      await page.type("#password", process.env.PASSWORD);
+      await page.click("#submit");
+
+      // End authorization
+
+      // Navigate to page that need to create pdf
+      await page.goto(`http://localhost:8000/admin/reservation/info/${id}`, {
+        waitUntil: "networkidle2"
+      });
+
+      // #Save to server use this
+      // const pdf = await page.pdf({
+      //   path: `booking-info-${id}.pdf`,
+      //   format: "A4"
+      // });
+
+      const pdf = await page.pdf({
+        format: "A4",
+        landscape: false
+      });
+
+      await res.type("application/pdf");
+      await res.send(pdf);
+
+      await browser.close();
+      // return pdf;
+    })();
+
+    //res.redirect(`http://localhost:8000/admin/reservation/views/${id}`);
   }
 };

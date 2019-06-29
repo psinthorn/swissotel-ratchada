@@ -1,0 +1,167 @@
+{{!-- Customer Information - --}}
+
+
+
+
+<div class="container">
+
+    <div class="row card" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
+
+        <div class="col s12 m12 l12"
+            style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
+
+            <h4>
+                <b>Reservations Information</b>
+            </h4>
+            <div class="hr-1px"></div>
+
+            <div class="row">
+
+                {{> _booking-room-views-info }}
+            </div>
+
+            {{#each booking }}
+            <div class="row">
+
+
+                <div class="col s12 m6 l6 input-field">
+                    <input type="text" name="bookingId" id="bookingId" value="{{ _id }}" disabled>
+                    <label for="bookingId">Booking ID.</label>
+                </div>
+
+                <div class="col s12 m6 l6 input-field">
+                    <input type="text" name="bookingStatus" id="bookingStatus" value="{{ status }}" disabled>
+                    <label for="bookingStatus">Booking Status</label>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col s12 m2 l2 input-field">
+                    <select name="suffix" id="suffix" disabled>
+                        {{#select suffix }}
+                        <option value="Mr.">Mr.</option>
+                        <option value="Ms.">Ms.</option>
+                        <option value="Mrs.">Mrs.</option>
+                        {{/select }}
+                    </select>
+                    <label for="suffix">Title</label>
+                </div>
+                <div class="col s12 m5 l5 input-field">
+                    <input type="text" name="fname" value="{{fname}}" disabled>
+                    <label for="fname">First Name</label>
+                </div>
+
+                <div class="col s12 m5 l5 input-field">
+                    <input type="text" name="lname" value="{{lname}}" disabled>
+                    <label for="lname">Family Name</label>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col s12 m12 l12 input-field">
+                    <input type="text" value="{{email}}" disabled>
+                    <label for="email">Email Address</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m12 l12 input-field">
+                    <input type="text" name="companyname" value="{{companyname}}" disabled>
+                    <label for="companyname">Company Name.</label>
+                </div>
+
+                <div class="col s12 m12 l12 input-field">
+                    <input type="text" name="addr" value="{{addr}}" disabled>
+                    <label for="addr">Address</label>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col s12 m6 l6 input-field">
+                    <input type="text" name="phone" value="{{phone}}" disabled>
+                    <label for="phone">Telephone</label>
+                </div>
+
+                <div class="col s12 m6 l6 input-field">
+                    <input type="text" name="fax" value="{{fax}}" disabled>
+                    <label for="fax">Facimile</label>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col s12 m4 l4 input-field">
+                    <input type="text" class="datepicker" name="arvdate" value="{{arvdate}}" disabled>
+                    <label for="arvdate">Arrival Date</label>
+                </div>
+
+
+                <div class="col s12 m4 l4 input-field">
+                    <input type="text" name="arvflight" value="{{arvflight}}" disabled>
+                    <label for="arvflight">Flight No.</label>
+                </div>
+
+                <div class="col s12 m4 l4 input-field">
+                    <input type="text" class="timepicker" name="arvtime" value="{{arvtime}}" disabled>
+                    <label for="arvtime">Time</label>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col s12 m4 l4 input-field">
+                    <input type="text" class="datepicker" name="dptdate" value="{{dptdate}}" disabled>
+                    <label for="dptdate">Departure Date</label>
+                </div>
+
+                <div class="col s12 m4 l4 input-field">
+                    <input type="text" name="dptflight" value="{{dptflight}}" disabled>
+                    <label for="dptflight">Flight No.</label>
+                </div>
+
+                <div class="col s12 m4 l4 input-field">
+                    <input type="text" class="timepicker" name="dpttime" value="{{dpttime}}" disabled>
+                    <label for="dpttime">Time</label>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+                <div class="col s12 m12 l12"
+                    style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
+                    <h4>
+                        <b>Special Request</b>
+                    </h4>
+                    <div class="hr-1px"></div>
+
+                    <div class="row">
+                        <div class="col s12 m12 l12 input-field">
+                            <input type="text" name="specialReq" value="{{specialReq}}" disabled>
+                            <label for="specilReq">Your special request</label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            {{> _booking-cc-views-info}}
+
+        </div>
+
+
+
+    </div>
+
+    {{/each}}
+
+
+
+</div>

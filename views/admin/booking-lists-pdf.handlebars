@@ -5,14 +5,10 @@
     </div>
 
 
-    <h3>Current Reservations Lists</h3>
+    <h5>Current Reservations Lists</h5>
     <div class="hr-1px"></div>
     <div class="row">
-
-
-
-        <div class="right"> | Total {{ total }} Bookings | <a href="/admin/bookings/pdf" target="_blank">Download as
-                PDF |</a> </div>
+        {{!-- <div class="left"><a href="javascript:genPDF()">Download as PDF</a> </div> --}}
     </div>
     <div class="row">
 
@@ -22,21 +18,21 @@
             <thead>
                 <tr>
                     <th>
-                        <h5>Reservation ID</h5>
+                        <h6>Reservation ID</h6>
                     </th>
                     <th>
-                        <h5>Name</h5>
+                        <h6>Name</h6>
                     </th>
                     <th>
-                        <h5>Email Address</h5>
+                        <h6>Email Address</h6>
                     </th>
-                    {{!-- <th><h5>Booking Made</h5></th> --}}
-                    <th colspan="2">
-                        <h5>View As</h5>
+                    {{!-- <th><h6>Booking Made</h6></th> --}}
+                    {{!-- <th colspan="2">
+                        <h6>View As</h6>
                     </th>
                     <th colspan="3" class="right-align">
-                        <h5>Manage</h5>
-                    </th>
+                        <h6>Manage</h6>
+                    </th> --}}
 
                 </tr>
             </thead>
@@ -59,7 +55,7 @@
                         {{ email }}
                     </td>
 
-                    <td class="center-align">
+                    {{!-- <td class="center-align">
                         <a href="/admin/reservation/views/{{ id }}">HTML</a>
                     </td>
                     <td class="center-align">
@@ -74,7 +70,7 @@
 
 
                     </td>
-
+ --}}
 
                 </tr>
                 {{/each}}

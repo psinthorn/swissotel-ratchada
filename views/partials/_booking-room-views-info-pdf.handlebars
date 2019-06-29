@@ -1,0 +1,74 @@
+{{!-- Swiss Premier Room --}}
+<div class="row card" style="background-color: #fafafa;">
+
+    {{!-- {{#each booking }}
+            <div class="col s12 m12 l12" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
+                <div class="col s12 m6 l6 input-field">
+                    <input type="text" name="bookingId" id="bookingId" value="{{ _id }}">
+                    <label for="bookingId">Booking ID.</label>
+                </div>
+
+                <div class="col s12 m6 l6 input-field">
+                    <input type="text" name="bookingStatus" id="bookingStatus" value="{{ status }}">
+                    <label for="bookingStatus">Booking Status</label>
+                </div>
+            </div>
+                {{/each}}
+             --}}
+
+    <div class="col s12 m12 l12"
+        style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
+        <b>Room Type Delegation</b>
+        <div class="hr-1px"></div>
+    </div>
+
+    <div class="col s12 m6 l6"
+        style="background-color: #fafafa; padding-top: 10px; padding-left: 20px;padding-right: 20px;">
+
+        <p><b>1. Swiss Premier Room</b></p>
+
+
+
+        <p>
+
+
+            <label>
+                <input type="checkbox" name="spmrsingle" class="filled-in" {{ roomsCheck.spmrSingle }} disabled />
+                <span style="font-size: 12px">Single Occupancy</span>
+            </label>
+        </p>
+
+
+
+        <p>
+            <label>
+                <input type="checkbox" name="spmrtwin" class="filled-in" {{ roomsCheck.spmrTwin }} disabled />
+                <span style="font-size: 12px;">Twin Occupancy </span>
+            </label>
+        </p>
+
+    </div>
+
+
+    <div class="col s12 m6 l6"
+        style="background-color: #fafafa; padding-top: 10px; padding-left: 20px;padding-right: 20px;">
+        {{!-- <b>Room Type Delegation</b>
+                    <div class="hr-1px"></div> --}}
+
+        <p><b>Extra Bed</b> </p>
+
+        <p>
+            <label>
+                <input type="checkbox" name="xtrb" class="filled-in" {{ roomsCheck.extraBed }} disabled />
+                <span style="font-size: 12px">Extra Bed </span>
+            </label>
+        </p>
+
+    </div>
+
+
+
+
+
+</div>
+</div>
