@@ -10,7 +10,6 @@ const Policy = require("./../../models/Policy");
 module.exports = {
   //Booking Reservation Page
   eventBooking(req, res) {
-    console.log(process.env.EMAIL);
     let promiseAll = [Transfer.find({}).exec(), Policy.find({}).exec()];
     Promise.all(promiseAll).then(([transfers, policy]) => {
       res.status(200).render("index/event-booking", {

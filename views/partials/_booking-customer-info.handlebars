@@ -1,158 +1,162 @@
 {{!-- Customer Information  - --}}
-        <div class="row card" style="background-color: #fafafa;">
-                
+<div class="row card" style="background-color: #fafafa;">
 
-               
-                <div class="col s12 m12 l12" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                    <b>Customer Information</b>
-                    <div class="hr-1px"></div>
 
-                     <div class="row">
 
-                            <div class="col s12 m2 l2 input-field">
-                                <select name="suffix" id="suffix">
-                                           <option value=" " >Select Title</option>
-                                           <option value="Mr." >Mr.</option>
-                                            <option value="Ms." >Ms.</option>
-                                            <option value="Mrs." >Mrs.</option>                                      
-                                </select>
-                                <label for="suffix">Title</label>
-                            </div>
+    <div class="col s12 m12 l12"
+        style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
+        <b>Customer Information</b>
+        <p class="red-text text-lighten-2">*all fields is required</p>
+        <div class="hr-1px"></div>
 
-                            <div class="col s12 m5 l5 input-field">
-                                <input type="text"  name="fname" required>
-                                <label for="fname">First Name</label>
-                            </div>
-                            
-                            <div class="col s12 m5 l5 input-field">
-                                <input type="text"  name="lname" required>
-                                <label for="lname">Family Name</label>
-                            </div>
+        <div class="row">
 
-                            
+            <div class="col s12 m2 l2 input-field">
+                <select name="suffix" id="suffix">
+                    <option value=" ">Select Title</option>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Ms.">Ms.</option>
+                    <option value="Mrs.">Mrs.</option>
+                </select>
+                <label for="suffix">Title</label>
+            </div>
+
+            <div class="col s12 m5 l5 input-field">
+                <input type="text" name="fname" required>
+                <label for="fname">First Name</label>
+            </div>
+
+            <div class="col s12 m5 l5 input-field">
+                <input type="text" name="lname" required>
+                <label for="lname">Family Name</label>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12 l12 input-field">
+                <input id="email" type="email" name="email" class="validate" required>
+                <label for="email">Email</label>
+                <span class="helper-text" data-error="Email address not valid!"
+                    data-success="Email address is valid">Please input your email address</span>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col s12 m12 l12 input-field">
+                <input type="text" name="companyname" required>
+                <label for="companyname">Company Name</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12 l12 input-field">
+                <input type="text" name="addr" required>
+                <label for="addr">Address</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m6 l6 input-field">
+                <input type="text" name="phone" required>
+                <label for="phone">Telephone</label>
+            </div>
+
+            <div class="col s12 m6 l6 input-field">
+                <input type="text" name="fax" required>
+                <label for="fax">Facimile</label>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col s12 m4 l4 input-field">
+                <input type="text" class="datepicker" name="arvdate" required>
+                <label for="arvdate">Arrival Date</label>
+            </div>
+
+
+            <div class="col s12 m4 l4 input-field">
+                <input type="text" name="arvflight" required>
+                <label for="arvflight">Flight No.</label>
+            </div>
+
+            <div class="col s12 m4 l4 input-field">
+                <input type="text" class="timepicker" name="arvtime" required>
+                <label for="arvtime">Time</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col s12 m4 l4 input-field">
+                <input type="text" class="datepicker" name="dptdate">
+                <label for="dptdate">Departure Date</label>
+            </div>
+
+            <div class="col s12 m4 l4 input-field">
+                <input type="text" name="dptflight">
+                <label for="dptflight">Flight No.</label>
+            </div>
+
+            <div class="col s12 m4 l4 input-field">
+                <input type="text" class="timepicker" name="dpttime">
+                <label for="dpttime">Time</label>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col s12 m12 l12"
+                style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
+                <b>Special Request</b>
+                <div class="hr-1px"></div>
+
+                <div class="row">
+                    <div class="col s12 m12 l12 input-field">
+                        <input type="text" name="specialReq">
+                        <label for="SpecilReq">Your special request</label>
                     </div>
 
-                      <div class="row">
-                              <div class="col s12 m12 l12 input-field">
-                                <input id="email" type="email" name="email" class="validate">
-                                <label for="email">Email</label>
-                                <span class="helper-text" data-error="Email address not valid!" data-success="Email address is valid">Please input your email address</span>
-                            </div>
-                         </div>
+                </div>
+            </div>
+        </div>
 
 
-                    <div class="row">
-                            <div class="col s12 m12 l12 input-field">
-                                <input type="text"  name="companyname">
-                                <label for="companyname">Company Name</label>
-                            </div>                           
-                    </div>
+        {{> _booking-cc-info}}
+        <div class="row">
 
-                    <div class="row">
-                            <div class="col s12 m12 l12 input-field">
-                                <input type="text"  name="addr">
-                                <label for="addr">Address</label>
-                            </div>                           
-                    </div>
+            <div class="col s12 m6 l6">
+                <label>
+                    <input type="checkbox" name="readPolicy" class="filled-in" required />
+                    <span>*I have read and accept the Terms & Conditions.</span>
+                </label>
+            </div>
 
-                     <div class="row">
-                            <div class="col s12 m6 l6 input-field">
-                                <input type="text"  name="phone">
-                                <label for="phone">Telephone</label>
-                            </div>
-                            
-                            <div class="col s12 m6 l6 input-field">
-                                <input type="text"  name="fax">
-                                <label for="fax">Facimile</label>
-                            </div>
-
-                         </div>
-                       
-
-                         <div class="row">
-                            <div class="col s12 m4 l4 input-field">
-                                <input type="text" class="datepicker" name="arvdate">
-                                <label for="arvdate">Arrival Date</label>
-                            </div>
-                            
-
-                            <div class="col s12 m4 l4 input-field">
-                                <input type="text"  name="arvflight">
-                                <label for="arvflight">Flight No.</label>
-                            </div>
-
-                             <div class="col s12 m4 l4 input-field">
-                                <input type="text" class="timepicker" name="arvtime">
-                                <label for="arvtime">Time</label>
-                            </div>
-
-                         </div>
-
-                           <div class="row">
-                            <div class="col s12 m4 l4 input-field">
-                                <input type="text" class="datepicker" name="dptdate">
-                                <label for="dptdate">Departure Date</label>
-                            </div>
-                            
-                            <div class="col s12 m4 l4 input-field">
-                                <input type="text"  name="dptflight">
-                                <label for="dptflight">Flight No.</label>
-                            </div>
-
-                             <div class="col s12 m4 l4 input-field">
-                                <input type="text" class="timepicker" name="dpttime">
-                                <label for="dpttime">Time</label>
-                            </div>
-                         </div>
+        </div>
 
 
-                         <div class="row">
-
-                         <div class="col s12 m12 l12" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
-                            <b>Special Request</b>
-                            <div class="hr-1px"></div>
-                                
-                                <div class="row">
-                                    <div class="col s12 m12 l12 input-field">
-                                        <input type="text"  name="specialReq">
-                                        <label for="SpecilReq">Your special request</label>
-                                    </div>
-                                                    
-                                </div>
-                        </div>
-                    </div>
+        <div class="row">
 
 
-                     {{> _booking-cc-info}}
-                            <div class="row">
+            <div class="col s12 m6 l6">
+                <button class="btn" type="submit">
+                    Reserve Now
+                </button>
+            </div>
+        </div>
 
-                                <div class="col s12 m6 l6">
-                                <label>
-                                    <input type="checkbox" name="readPolicy" class="filled-in" required/>
-                                    <span>*I have read and accept the Terms & Conditions.</span>
-                                </label>
-                             </div>
+    </div>
 
-                            </div>
-                          
-
-                         <div class="row">
-                             
-                   
-                                <div class="col s12 m6 l6">
-                                    <button class="btn" type="submit">               
-                                        Reserve Now 
-                                    </button> 
-                                </div>               
-                        </div>
-                                    
-                 </div>
-              
-        </div>  
+</div>
 
 
-        {{!-- Special Request --}}
-        {{!-- <div class="row card" style="background-color: #fafafa;">
+{{!-- Special Request --}}
+{{!-- <div class="row card" style="background-color: #fafafa;">
                 
              <div class="col s12 m12 l12" style="background-color: #fafafa; padding-top: 30px; padding-left: 20px;padding-right: 20px;">
                     <b>Special Request</b>
@@ -171,5 +175,3 @@
                 
               
         </div>   --}}
-
-     
