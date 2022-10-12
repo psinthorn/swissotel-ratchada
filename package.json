@@ -19,7 +19,7 @@
     "express-fileupload": "^0.4.0",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
-    "jspdf": "^1.4.1",
+    "jspdf": "^2.5.1",
     "method-override": "^2.3.10",
     "moment": "^2.22.2",
     "mongoose": "^5.1.7",
